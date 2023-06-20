@@ -1,15 +1,19 @@
-import jwt from 'jsonwebtoken';
+import { v4 as uuidv4 } from 'uuid';
+import { sign } from 'jsonwebtoken';
 import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { LoginDTO } from '../ts/dto/auth.dto';
+import { LoginDTO, RegisterDTO } from '../ts/dto/auth.dto';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
 import { MODEL_NAME } from '../ts/enums/model_enums';
 import { User } from '../ts/interfaces/common';
 import RestFullAPI from '../ts/utils/apiResponse';
 import HttpException from '../ts/utils/http.exception';
 import HashStringHandler from '../ts/utils/string.hash';
-import { handleSeedData } from '../common';
-import { USER_ARRAY } from '../data/handleGenerateSeedData';
+import { USER_ROLE } from '../ts/enums/user_enum';
+import {
+  checkMissPropertyInObjectBaseOnValueCondition,
+  isEmpty,
+} from '../common';
 
 @Injectable()
 export class AuthService {
@@ -18,34 +22,30 @@ export class AuthService {
     private userModel: Model<User>,
   ) {}
 
-  async seedData() {
-    return handleSeedData(this.userModel, USER_ARRAY);
-  }
-
   async login({ email, password }: LoginDTO) {
     try {
-      const foundUser = await this.userModel.findOne({
-        email,
-        password,
-      });
+      const foundUser = await this.userModel
+        .findOne({
+          email,
+        })
+        .exec();
+
       if (foundUser) {
         // * Case Exist
-
         const isMatchPassword: boolean = HashStringHandler.verify(
           password,
           foundUser.password,
         );
         switch (isMatchPassword) {
           case true: {
-            const { id, firstName, lastName, email } = foundUser;
+            const { id, firstName, lastName, email, type } = foundUser;
+            const payload = {
+              user: { id, firstName, lastName, email, type },
+            };
 
-            const token = jwt.sign(
-              { id, firstName, lastName, email },
-              process.env.JWT_TOKEN_SECRET_KEY,
-              {
-                expiresIn: process.env.EXPIRES_IN,
-              },
-            );
+            const token = sign(payload, process.env.JWT_TOKEN_SECRET_KEY, {
+              expiresIn: process.env.EXPIRES_IN,
+            });
 
             return RestFullAPI.onSuccess(
               STATUS_CODE.STATUS_CODE_200,
@@ -55,7 +55,6 @@ export class AuthService {
                 expires_in: process.env.EXPIRES_IN,
               },
             );
-            break;
           }
           case false: {
             return RestFullAPI.onSuccess(
@@ -70,12 +69,56 @@ export class AuthService {
           STATUS_CODE.STATUS_CODE_404,
           STATUS_MESSAGE.NOT_FOUND,
           {
-            message: `User with phone: ${email} doesn't exist ! Please check it and try again!`,
+            message: `User with email: ${email} doesn't exist ! Please check it and try again!`,
           },
         );
       }
     } catch (err) {
-      return RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_404, {
+      return RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_500, {
+        message: err.message,
+      } as HttpException);
+    }
+  }
+  async register({
+    type,
+    firstName,
+    lastName,
+    address,
+    email,
+    phoneNumber,
+    password,
+  }: RegisterDTO) {
+    try {
+      const argMissArg = checkMissPropertyInObjectBaseOnValueCondition(
+        { firstName, lastName, address, email, phoneNumber, password },
+        [undefined, ''],
+      );
+
+      if (isEmpty(argMissArg)) {
+        const newUserDocument = {
+          id: uuidv4(),
+          type: type ? type : USER_ROLE.CUSTOMER,
+          firstName,
+          lastName,
+          address,
+          email,
+          phoneNumber,
+          password: HashStringHandler.hash(password, 10),
+        };
+
+        await this.userModel.create(newUserDocument);
+
+        return RestFullAPI.onSuccess(
+          STATUS_CODE.STATUS_CODE_200,
+          STATUS_MESSAGE.SUCCESS,
+        );
+      } else {
+        return RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_406, {
+          message: argMissArg.join(',') + ' is required!',
+        } as HttpException);
+      }
+    } catch (err) {
+      return RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_500, {
         message: err.message,
       } as HttpException);
     }

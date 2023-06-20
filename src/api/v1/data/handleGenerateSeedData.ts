@@ -6,7 +6,18 @@ import {
   randomStringByCharsetAndLength,
 } from '../common';
 
-export const USER_ARRAY: User[] = [];
+export const USER_ARRAY: User[] = [
+  {
+    id: uuidv4(),
+    type: USER_ROLE.ADMIN,
+    firstName: 'Tuan',
+    lastName: 'Tran',
+    address: 'HCM',
+    email: 'tuantransn2001@gmail.com',
+    phoneNumber: '0364977325',
+    password: 'password',
+  },
+];
 
 for (let index = 0; index < 49; index++) {
   const userType = index % 2 === 0 ? USER_ROLE.CUSTOMER : USER_ROLE.GUEST;

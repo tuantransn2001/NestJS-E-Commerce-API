@@ -1,6 +1,14 @@
-interface LoginDTO {
+export interface LoginDTO {
   email: string;
   password: string;
 }
 
-export { LoginDTO };
+export interface RegisterDTO {
+  type?: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  email: string;
+  phoneNumber: string;
+  password: string;
+}

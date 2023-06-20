@@ -1,5 +1,6 @@
 import { ObjectType } from '../ts/types/common';
 import * as randomstring from 'randomstring';
+import { Falsy } from 'rxjs';
 export const isEmpty = (target: ObjectType | any): boolean => {
   return target instanceof Array
     ? target.length === 0
@@ -28,5 +29,26 @@ export const randomStringByCharsetAndLength = (
   });
 };
 
-export const handleSeedData = async (Model: any, data: any[]) =>
+export const handleSeedData = async (Model: any, data: any[]) => {
   await Model.insertMany(data);
+};
+
+export const checkMissPropertyInObjectBaseOnValueCondition = (
+  baseObject: ObjectType,
+  valueCondition: Falsy[],
+): Array<string> => {
+  const arrMissArray: Array<string> = Object.keys(baseObject).reduce(
+    (res: any, key: string) => {
+      if (
+        baseObject.hasOwnProperty(key) &&
+        valueCondition.includes(baseObject[key])
+      ) {
+        res.push(key);
+      }
+      return res;
+    },
+    [],
+  );
+
+  return arrMissArray;
+};

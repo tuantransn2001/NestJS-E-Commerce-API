@@ -1,3 +1,1 @@
-type ObjectType = Record<string, any>;
-
-export { ObjectType };
+export type ObjectType = Record<string, any>;
