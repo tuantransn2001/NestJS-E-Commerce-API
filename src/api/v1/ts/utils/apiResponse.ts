@@ -1,4 +1,4 @@
-import { STATUS_CODE } from '../enums/api_enums';
+import { STATUS_CODE, STATUS_MESSAGE } from '../enums/api_enums';
 import HttpException from './http.exception';
 class RestFullAPI {
   public data: any;
@@ -20,6 +20,23 @@ class RestFullAPI {
       statusCode,
       error: error,
     };
+  }
+
+  public static async onArrayPromiseSuccess(promisesResult: Promise<any>[]) {
+    const findResult = await Promise.all(promisesResult);
+    const isOK = findResult.every((result) => result.statusCode === 200);
+    return isOK
+      ? {
+          response: RestFullAPI.onSuccess(
+            STATUS_CODE.STATUS_CODE_200,
+            STATUS_MESSAGE.SUCCESS,
+          ),
+        }
+      : {
+          response: RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_500, {
+            message: STATUS_MESSAGE.SERVER_ERROR,
+          } as HttpException),
+        };
   }
 }
 

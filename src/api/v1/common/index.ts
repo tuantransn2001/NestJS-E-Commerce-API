@@ -1,7 +1,11 @@
-import { ObjectType } from '../ts/types/common';
+import { AppModel, ModelData, ObjectType } from '../ts/types/common';
 import * as randomstring from 'randomstring';
 import { Falsy } from 'rxjs';
-export const isEmpty = (target: ObjectType | any): boolean => {
+import { PaginationDTO } from '../ts/dto/query.dto';
+import RestFullAPI from '../ts/utils/apiResponse';
+import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
+import HttpException from '../ts/utils/http.exception';
+export const isEmpty = (target: ObjectType | any[]): boolean => {
   return target instanceof Array
     ? target.length === 0
     : target === undefined || target === null
@@ -29,10 +33,6 @@ export const randomStringByCharsetAndLength = (
   });
 };
 
-export const handleSeedData = async (Model: any, data: any[]) => {
-  await Model.insertMany(data);
-};
-
 export const checkMissPropertyInObjectBaseOnValueCondition = (
   baseObject: ObjectType,
   valueCondition: Falsy[],
@@ -51,4 +51,57 @@ export const checkMissPropertyInObjectBaseOnValueCondition = (
   );
 
   return arrMissArray;
+};
+
+export const getAllRecordHandler = async (
+  Model: AppModel,
+  { page_number, page_size }: Partial<PaginationDTO>,
+  selectAttributes: string[],
+  objSearchParam?: ObjectType,
+) => {
+  try {
+    const _skip = (page_number - 1) * page_size;
+    const _limit = page_size;
+
+    const searchQuery: ObjectType = !isEmpty(objSearchParam)
+      ? objSearchParam
+      : {};
+
+    const targetProperties: ObjectType =
+      !isEmpty(selectAttributes) &&
+      selectAttributes.reduce((res: ObjectType, attr: string) => {
+        return { ...res, [attr]: 1 };
+      }, {});
+
+    const queryResult = await Model.find(searchQuery, targetProperties)
+      .skip(_skip)
+      .limit(_limit);
+
+    const queryResultCount = await Model.countDocuments().exec();
+
+    return RestFullAPI.onSuccess(
+      STATUS_CODE.STATUS_CODE_200,
+      STATUS_MESSAGE.SUCCESS,
+      {
+        length: queryResultCount,
+        data: queryResult,
+      },
+    );
+  } catch (err) {
+    const message: string = err.message;
+    return RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_500, {
+      message,
+    } as HttpException);
+  }
+};
+
+export const handleSeedData = (seedData: ModelData) => {
+  try {
+    seedData.forEach(async ({ Model, data }) => {
+      await Model.deleteMany();
+      await Model.insertMany(data);
+    });
+  } catch (err) {
+    throw err;
+  }
 };

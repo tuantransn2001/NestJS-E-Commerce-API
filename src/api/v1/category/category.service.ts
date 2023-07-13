@@ -1,0 +1,44 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { MODEL_NAME } from '../ts/enums/model_enums';
+import RestFullAPI from '../ts/utils/apiResponse';
+import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
+import { handleServerError } from '../ts/utils/serverErrorHandler';
+import { getAllRecordHandler } from '../common';
+import { Category } from '../ts/interfaces/category.d.type';
+import { PaginationDTO } from '../ts/dto/query.dto';
+
+@Injectable()
+export class CategoryService {
+  constructor(
+    @Inject(MODEL_NAME.CATEGORY)
+    private categoryModel: Model<Category>,
+  ) {}
+
+  public async getAll({ page_number, page_size }: PaginationDTO) {
+    try {
+      return getAllRecordHandler(
+        this.categoryModel,
+        { page_number, page_size },
+        ['id', 'title', 'img', 'createdAt', 'updatedAt'],
+      );
+    } catch (err) {
+      return handleServerError(err);
+    }
+  }
+  public async getByID({
+    id,
+  }: Omit<PaginationDTO, 'page_size' | 'page_number'>) {
+    try {
+      const foundCategory = await this.categoryModel.findOne({ id }).exec();
+
+      return RestFullAPI.onSuccess(
+        STATUS_CODE.STATUS_CODE_200,
+        STATUS_MESSAGE.SUCCESS,
+        foundCategory,
+      );
+    } catch (err) {
+      return handleServerError(err);
+    }
+  }
+}

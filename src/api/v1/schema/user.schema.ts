@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema(
+export const UserSchema = new mongoose.Schema(
   {
     id: { type: String },
     type: { type: String },
@@ -15,5 +15,3 @@ const UserSchema = new mongoose.Schema(
   },
   { timestamps: true, minimize: false },
 );
-
-export { UserSchema };

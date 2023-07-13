@@ -1,5 +1,5 @@
-enum MODEL_NAME {
+export enum MODEL_NAME {
   USER = 'User',
   CATEGORY = 'Category',
+  PRODUCT = 'product',
 }
-export { MODEL_NAME };
