@@ -5,6 +5,7 @@ import { PaginationDTO } from '../ts/dto/query.dto';
 import RestFullAPI from '../ts/utils/apiResponse';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
 import HttpException from '../ts/utils/http.exception';
+import { handleServerError } from '../ts/utils/serverErrorHandler';
 export const isEmpty = (target: ObjectType | any[]): boolean => {
   return target instanceof Array
     ? target.length === 0
@@ -88,10 +89,7 @@ export const getAllRecordHandler = async (
       },
     );
   } catch (err) {
-    const message: string = err.message;
-    return RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_500, {
-      message,
-    } as HttpException);
+    return handleServerError(err);
   }
 };
 

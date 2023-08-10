@@ -15,6 +15,7 @@ interface ProductVariant {
   id: string;
   name: string;
   imgSrc: string;
+  price: string;
   details: ProductDetail[];
   options: ProductOption[];
 }

@@ -23,7 +23,7 @@ export class AuthService {
     private userModel: Model<User>,
   ) {}
 
-  async login({ email, password }: LoginDTO) {
+  public async login({ email, password }: LoginDTO) {
     try {
       const foundUser = await this.userModel
         .findOne({
@@ -73,7 +73,7 @@ export class AuthService {
       return handleServerError(err);
     }
   }
-  async register({
+  public async register({
     type,
     firstName,
     lastName,

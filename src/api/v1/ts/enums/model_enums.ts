@@ -1,5 +1,10 @@
 export enum MODEL_NAME {
   USER = 'User',
   CATEGORY = 'Category',
-  PRODUCT = 'product',
+  PRODUCT = 'Product',
+  CART = 'Cart',
+  PAYMENT = 'Payment',
+  ORDER = 'Order',
+  SHIPMENT = 'Shipment',
+  ADDRESS = 'Address',
 }

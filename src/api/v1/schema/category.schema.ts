@@ -7,7 +7,7 @@ export const CategorySchema = new mongoose.Schema(
     title: { type: String },
     subTitle: { type: String },
     description: { type: [String] },
-    img: { type: String },
+    imgSrc: { type: String },
     contents: {
       type: [
         {

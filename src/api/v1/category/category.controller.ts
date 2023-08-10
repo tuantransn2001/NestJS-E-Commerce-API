@@ -10,9 +10,7 @@ export class CategoryController {
     return await this.categoryService.getAll({ page_number, page_size });
   }
   @Get('/get-by-id')
-  public async getByID(
-    @Query() { id }: Omit<PaginationDTO, 'page_number' | 'page_size'>,
-  ) {
+  public async getByID(@Query() { id }: Partial<PaginationDTO>) {
     return await this.categoryService.getByID({ id });
   }
 }

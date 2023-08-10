@@ -12,6 +12,13 @@ import {
 import { USER_ROLE } from '../../ts/enums/user_enum';
 import HashStringHandler from '../../ts/utils/string.hash';
 import { Product } from '../../ts/interfaces/product.d.type';
+import {
+  ADDRESS_SEEDER,
+  PAYMENT_SEEDER,
+  PRODUCT_SEEDER,
+} from '../../data/seeder';
+import { Payment } from '../../ts/interfaces/payment.type';
+import { Address } from '../../ts/interfaces/address.d.type';
 
 @Injectable()
 export class SeedService implements OnModuleInit {
@@ -22,11 +29,15 @@ export class SeedService implements OnModuleInit {
     private readonly categoryModel: Model<Category>,
     @Inject(MODEL_NAME.PRODUCT)
     private readonly productModel: Model<Product>,
+    @Inject(MODEL_NAME.PAYMENT)
+    private readonly paymentModel: Model<Payment>,
+    @Inject(MODEL_NAME.ADDRESS)
+    private readonly addressModel: Model<Address>,
   ) {}
-  private async generateUserMockData() {
+  public async generateUserMockData() {
     const USER_ARRAY: User[] = [
       {
-        id: uuidv4(),
+        id: '670b2bc9-c97b-494e-9f3b-82e299456c1f',
         type: USER_ROLE.ADMIN,
         firstName: 'Tuan',
         lastName: 'Tran',
@@ -70,7 +81,7 @@ export class SeedService implements OnModuleInit {
     }
     return USER_ARRAY;
   }
-  private generateCategoryMockData() {
+  public generateCategoryMockData() {
     return [
       {
         id: uuidv4(),
@@ -80,7 +91,8 @@ export class SeedService implements OnModuleInit {
         description: [
           'Every living space is different, whether you want to lounge, entertain or curl up. With our range of sofas and chairs, you’re certain to find the right style for the heart of your home, from traditional designs to modern modulars.',
         ],
-        img: 'https://www.lenleys.co.uk/wp-content/uploads/2022/03/Ralphie.webp',
+        imgSrc:
+          'https://www.lenleys.co.uk/wp-content/uploads/2022/03/Ralphie.webp',
         contents: [
           {
             title: 'SENSATIONAL STYLE',
@@ -106,7 +118,8 @@ export class SeedService implements OnModuleInit {
           `Don’t compromise when it comes to your comfort at night, and choose the right bed and bedroom furniture to turn a bedroom into your own personal sanctuary.`,
           `At Lenleys Home we have a beautiful, extensive selection of beds and bedroom furniture on display in our showrooms ranging from traditional style to modern contemporary designs. `,
         ],
-        img: 'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
+        imgSrc:
+          'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
         contents: [
           {
             title: 'BEAUTIFUL BEDROOMS',
@@ -133,7 +146,8 @@ export class SeedService implements OnModuleInit {
         description: [
           `Our range of living room furniture will allow you to build the perfect room to your exacting tastes with minimal fuss.`,
         ],
-        img: 'https://www.lenleys.co.uk/wp-content/uploads/2022/06/Avignon-Dining-17.jpg',
+        imgSrc:
+          'https://www.lenleys.co.uk/wp-content/uploads/2022/06/Avignon-Dining-17.jpg',
         contents: [
           {
             title: 'LUXURIOUS LIVING',
@@ -158,7 +172,8 @@ export class SeedService implements OnModuleInit {
         description: [
           `At Lenleys Home we have a fantastic selection of dining room furniture on offer in our showrooms ranging from traditional style to contemporary design.`,
         ],
-        img: 'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
+        imgSrc:
+          'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
         contents: [
           {
             title: 'DIVINE DINING',
@@ -183,7 +198,8 @@ export class SeedService implements OnModuleInit {
         description: [
           `The flooring design studio at Lenleys Home is host to some of the most trusted brands in flooring.`,
         ],
-        img: 'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
+        imgSrc:
+          'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
         contents: [
           {
             title: 'DIVINE DINING',
@@ -202,7 +218,7 @@ export class SeedService implements OnModuleInit {
       },
     ];
   }
-  private generateProductMockData() {
+  public generateProductMockData() {
     const PRODUCT_ARRAY: Product[] = [];
 
     const randomCategoryID = () => {
@@ -325,7 +341,9 @@ export class SeedService implements OnModuleInit {
           Model: this.categoryModel,
           data: this.generateCategoryMockData(),
         },
-        { Model: this.productModel, data: this.generateProductMockData() },
+        { Model: this.productModel, data: PRODUCT_SEEDER },
+        { Model: this.paymentModel, data: PAYMENT_SEEDER },
+        { Model: this.addressModel, data: ADDRESS_SEEDER },
       ]);
     } catch (error) {
       throw error;

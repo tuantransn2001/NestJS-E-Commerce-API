@@ -1,5 +1,5 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
+import { Inject, Injectable } from '@nestjs/common';
 import { MODEL_NAME } from '../ts/enums/model_enums';
 import RestFullAPI from '../ts/utils/apiResponse';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
@@ -20,15 +20,13 @@ export class CategoryService {
       return getAllRecordHandler(
         this.categoryModel,
         { page_number, page_size },
-        ['id', 'title', 'img', 'createdAt', 'updatedAt'],
+        ['id', 'title', 'imgSrc', 'createdAt', 'updatedAt'],
       );
     } catch (err) {
       return handleServerError(err);
     }
   }
-  public async getByID({
-    id,
-  }: Omit<PaginationDTO, 'page_size' | 'page_number'>) {
+  public async getByID({ id }: Partial<PaginationDTO>) {
     try {
       const foundCategory = await this.categoryModel.findOne({ id }).exec();
 

@@ -8,6 +8,7 @@ export const ProductSchema = new mongoose.Schema(
     name: { type: String },
     SKU: { type: String },
     classify: { type: String },
+    discount_id: { type: String },
     variants: {
       type: [
         {
