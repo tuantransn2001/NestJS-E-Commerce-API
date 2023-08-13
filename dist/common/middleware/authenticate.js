@@ -29,9 +29,9 @@ let AuthenticateMiddleware = exports.AuthenticateMiddleware = class Authenticate
             }
         }
         catch (err) {
-            res.status(api_enums_1.STATUS_CODE.STATUS_CODE_500).send(apiResponse_1.default.onFail(api_enums_1.STATUS_CODE.STATUS_CODE_500, {
-                message: err.message,
-            }));
+            res
+                .status(api_enums_1.STATUS_CODE.STATUS_CODE_401)
+                .send(apiResponse_1.default.onSuccess(api_enums_1.STATUS_CODE.STATUS_CODE_401, api_enums_1.STATUS_MESSAGE.UN_AUTHORIZE, 'Client-Error && In-Valid Token'));
         }
     }
 };

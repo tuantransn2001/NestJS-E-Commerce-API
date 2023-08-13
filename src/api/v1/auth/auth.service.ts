@@ -70,7 +70,9 @@ export class AuthService {
         } as HttpException);
       }
     } catch (err) {
-      return handleServerError(err);
+      return RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_401, {
+        message: `Client-Error & UnAuthorize`,
+      } as HttpException);
     }
   }
   public async register({

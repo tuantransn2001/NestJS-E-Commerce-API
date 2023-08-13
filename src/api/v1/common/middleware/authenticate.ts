@@ -8,7 +8,6 @@ import {
 } from '../../ts/interfaces/common';
 import RestFullAPI from '../../ts/utils/apiResponse';
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import HttpException from '../../ts/utils/http.exception';
 
 @Injectable()
 export class AuthenticateMiddleware implements NestMiddleware {
@@ -37,11 +36,15 @@ export class AuthenticateMiddleware implements NestMiddleware {
           );
       }
     } catch (err) {
-      res.status(STATUS_CODE.STATUS_CODE_500).send(
-        RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_500, {
-          message: err.message,
-        } as HttpException),
-      );
+      res
+        .status(STATUS_CODE.STATUS_CODE_401)
+        .send(
+          RestFullAPI.onSuccess(
+            STATUS_CODE.STATUS_CODE_401,
+            STATUS_MESSAGE.UN_AUTHORIZE,
+            'Client-Error && In-Valid Token',
+          ),
+        );
     }
   }
 }

@@ -65,7 +65,9 @@ let AuthService = exports.AuthService = class AuthService {
             }
         }
         catch (err) {
-            return (0, serverErrorHandler_1.handleServerError)(err);
+            return apiResponse_1.default.onFail(api_enums_1.STATUS_CODE.STATUS_CODE_401, {
+                message: `Client-Error & UnAuthorize`,
+            });
         }
     }
     async register({ type, firstName, lastName, address, email, phoneNumber, password, }) {
