@@ -4,7 +4,7 @@ import { getAllRecordHandler } from '../common';
 import { PaginationDTO } from '../ts/dto/query.dto';
 import { MODEL_NAME } from '../ts/enums/model_enums';
 import { Payment } from '../ts/interfaces/payment.type';
-import { handleServerError } from '../ts/utils/serverErrorHandler';
+import { handleServerError } from '../utils/serverErrorHandler';
 
 @Injectable()
 export class PaymentService {

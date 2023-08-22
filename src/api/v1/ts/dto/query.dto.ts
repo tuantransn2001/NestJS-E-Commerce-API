@@ -1,4 +1,4 @@
-export interface PaginationDTO {
+export class PaginationDTO {
   id?: string;
   page_size: number;
   page_number: number;

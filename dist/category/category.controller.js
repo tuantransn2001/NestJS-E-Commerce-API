@@ -14,13 +14,15 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoryController = void 0;
 const common_1 = require("@nestjs/common");
+const query_dto_1 = require("../ts/dto/query.dto");
 const category_service_1 = require("./category.service");
 let CategoryController = exports.CategoryController = class CategoryController {
     constructor(categoryService) {
         this.categoryService = categoryService;
     }
-    async getAll({ page_number, page_size }) {
-        return await this.categoryService.getAll({ page_number, page_size });
+    async getAll(paginationDTO) {
+        console.log(paginationDTO);
+        return await this.categoryService.getAll(paginationDTO);
     }
     async getByID({ id }) {
         return await this.categoryService.getByID({ id });
@@ -30,7 +32,7 @@ __decorate([
     (0, common_1.Get)('/get-all'),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [query_dto_1.PaginationDTO]),
     __metadata("design:returntype", Promise)
 ], CategoryController.prototype, "getAll", null);
 __decorate([

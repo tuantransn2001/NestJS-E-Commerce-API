@@ -6,5 +6,7 @@ export declare enum MODEL_NAME {
     PAYMENT = "Payment",
     ORDER = "Order",
     SHIPMENT = "Shipment",
-    ADDRESS = "Address"
+    ADDRESS = "Address",
+    CONVERSATION = "Conversation",
+    HEALTH_CHECKER = "HealthChecker"
 }

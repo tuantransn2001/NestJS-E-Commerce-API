@@ -9,6 +9,6 @@ export declare class AddressController {
         data: any;
     } | {
         statusCode: number;
-        error: import("../ts/utils/http.exception").default;
+        error: import("../utils/http.exception").default;
     }>;
 }

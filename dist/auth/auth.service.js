@@ -19,11 +19,11 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("mongoose");
 const api_enums_1 = require("../ts/enums/api_enums");
 const model_enums_1 = require("../ts/enums/model_enums");
-const apiResponse_1 = require("../ts/utils/apiResponse");
-const string_hash_1 = require("../ts/utils/string.hash");
+const apiResponse_1 = require("../utils/apiResponse");
+const string_hash_1 = require("../utils/string.hash");
 const user_enum_1 = require("../ts/enums/user_enum");
 const common_2 = require("../common");
-const serverErrorHandler_1 = require("../ts/utils/serverErrorHandler");
+const serverErrorHandler_1 = require("../utils/serverErrorHandler");
 let AuthService = exports.AuthService = class AuthService {
     constructor(userModel) {
         this.userModel = userModel;
@@ -39,9 +39,9 @@ let AuthService = exports.AuthService = class AuthService {
                 const isMatchPassword = string_hash_1.default.verify(password, foundUser.password);
                 switch (isMatchPassword) {
                     case true: {
-                        const { id, firstName, lastName, email, type } = foundUser;
+                        const { id, firstName, lastName, email, type, avatar } = foundUser;
                         const payload = {
-                            user: { id, firstName, lastName, email, type },
+                            user: { id, firstName, lastName, email, type, avatar },
                         };
                         const token = (0, jsonwebtoken_1.sign)(payload, process.env.JWT_TOKEN_SECRET_KEY, {
                             expiresIn: process.env.EXPIRES_IN,

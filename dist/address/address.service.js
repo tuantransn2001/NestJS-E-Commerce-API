@@ -17,7 +17,7 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("mongoose");
 const common_2 = require("../common");
 const model_enums_1 = require("../ts/enums/model_enums");
-const serverErrorHandler_1 = require("../ts/utils/serverErrorHandler");
+const serverErrorHandler_1 = require("../utils/serverErrorHandler");
 let AddressService = exports.AddressService = class AddressService {
     constructor(addressModel) {
         this.addressModel = addressModel;

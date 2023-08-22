@@ -6,9 +6,9 @@ import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
 import { MODEL_NAME } from '../ts/enums/model_enums';
 import { Product } from '../ts/interfaces/product.d.type';
 import { ObjectType } from '../ts/types/common';
-import RestFullAPI from '../ts/utils/apiResponse';
-import { handleServerError } from '../ts/utils/serverErrorHandler';
-import URLSearchParam from '../ts/utils/urlSearchParam';
+import RestFullAPI from '../utils/apiResponse';
+import { handleServerError } from '../utils/serverErrorHandler';
+import { URLSearchParam } from '../utils/urlSearchParam';
 
 @Injectable()
 export class ProductService {
@@ -25,12 +25,18 @@ export class ProductService {
       const objFromSearchParam: ObjectType =
         URLSearchParam.urlParamsToObj(searchParam);
 
-      return getAllRecordHandler(
+      const objSearch = Object.keys((key: string) => ({
+        [key]: { $regex: objFromSearchParam[key], $options: 'i' },
+      }));
+
+      const result = await getAllRecordHandler(
         this.productModel,
         { page_number, page_size },
         [],
-        objFromSearchParam,
+        objSearch,
       );
+
+      return result;
     } catch (err) {
       return handleServerError(err);
     }

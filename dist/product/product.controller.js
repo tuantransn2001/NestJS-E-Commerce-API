@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductController = void 0;
 const common_1 = require("@nestjs/common");
+const query_dto_1 = require("../ts/dto/query.dto");
 const product_service_1 = require("./product.service");
 let ProductController = exports.ProductController = class ProductController {
     constructor(productService) {
@@ -30,7 +31,7 @@ __decorate([
     (0, common_1.Get)('/get-all'),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [query_dto_1.PaginationDTO]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "getAll", null);
 __decorate([

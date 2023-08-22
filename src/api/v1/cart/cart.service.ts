@@ -4,13 +4,13 @@ import { map as asyncMap } from 'awaity/esm';
 import { MODEL_NAME } from '../ts/enums/model_enums';
 import { Cart } from '../ts/interfaces/cart.d.type';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
-import { handleServerError } from '../ts/utils/serverErrorHandler';
+import { handleServerError } from '../utils/serverErrorHandler';
 import { AddItemToCartDTO } from './dto/addToCartDTO';
 import { GetUserCartDTO } from './dto/getUserCartDTO';
-import RestFullAPI from '../ts/utils/apiResponse';
+import RestFullAPI from '../utils/apiResponse';
 import { Product } from '../ts/interfaces/product.d.type';
 import { ObjectType } from '../ts/types/common';
-import HttpException from '../ts/utils/http.exception';
+import HttpException from '../utils/http.exception';
 @Injectable()
 export class CartService {
   constructor(

@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AddressController = void 0;
 const common_1 = require("@nestjs/common");
+const query_dto_1 = require("../ts/dto/query.dto");
 const address_service_1 = require("./address.service");
 let AddressController = exports.AddressController = class AddressController {
     constructor(addressService) {
@@ -31,7 +32,7 @@ __decorate([
     (0, common_1.Get)('/user'),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [query_dto_1.PaginationDTO]),
     __metadata("design:returntype", Promise)
 ], AddressController.prototype, "getUserAddress", null);
 exports.AddressController = AddressController = __decorate([

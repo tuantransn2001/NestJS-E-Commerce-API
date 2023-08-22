@@ -2,10 +2,9 @@ import { AppModel, ModelData, ObjectType } from '../ts/types/common';
 import * as randomstring from 'randomstring';
 import { Falsy } from 'rxjs';
 import { PaginationDTO } from '../ts/dto/query.dto';
-import RestFullAPI from '../ts/utils/apiResponse';
+import RestFullAPI from '../utils/apiResponse';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
-import HttpException from '../ts/utils/http.exception';
-import { handleServerError } from '../ts/utils/serverErrorHandler';
+import { handleServerError } from '../utils/serverErrorHandler';
 export const isEmpty = (target: ObjectType | any[]): boolean => {
   return target instanceof Array
     ? target.length === 0
@@ -71,7 +70,7 @@ export const getAllRecordHandler = async (
     const targetProperties: ObjectType =
       !isEmpty(selectAttributes) &&
       selectAttributes.reduce((res: ObjectType, attr: string) => {
-        return { ...res, [attr]: 1 };
+        return { ...res, [attr]: 1, _id: 0 };
       }, {});
 
     const queryResult = await Model.find(searchQuery, targetProperties)
@@ -103,3 +102,9 @@ export const handleSeedData = (seedData: ModelData) => {
     throw err;
   }
 };
+
+export const handleGetUniqObjInArr = (arr: any[], properties: string[]) => [
+  ...new Map(
+    arr.map((v) => [JSON.stringify(properties.map((k) => v[k])), v]),
+  ).values(),
+];

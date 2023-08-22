@@ -6,8 +6,9 @@ import { CategoryService } from './category.service';
 export class CategoryController {
   constructor(private categoryService: CategoryService) {}
   @Get('/get-all')
-  public async getAll(@Query() { page_number, page_size }: PaginationDTO) {
-    return await this.categoryService.getAll({ page_number, page_size });
+  public async getAll(@Query() paginationDTO: PaginationDTO) {
+    console.log(paginationDTO);
+    return await this.categoryService.getAll(paginationDTO);
   }
   @Get('/get-by-id')
   public async getByID(@Query() { id }: Partial<PaginationDTO>) {

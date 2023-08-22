@@ -7,6 +7,7 @@ exports.UserSchema = new mongoose_1.default.Schema({
     type: { type: String },
     firstName: { type: String },
     lastName: { type: String },
+    avatar: { type: String },
     address: { type: String },
     email: { type: String },
     phoneNumber: { type: String },

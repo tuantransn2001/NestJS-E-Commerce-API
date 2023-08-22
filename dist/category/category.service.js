@@ -16,9 +16,9 @@ exports.CategoryService = void 0;
 const mongoose_1 = require("mongoose");
 const common_1 = require("@nestjs/common");
 const model_enums_1 = require("../ts/enums/model_enums");
-const apiResponse_1 = require("../ts/utils/apiResponse");
+const apiResponse_1 = require("../utils/apiResponse");
 const api_enums_1 = require("../ts/enums/api_enums");
-const serverErrorHandler_1 = require("../ts/utils/serverErrorHandler");
+const serverErrorHandler_1 = require("../utils/serverErrorHandler");
 const common_2 = require("../common");
 let CategoryService = exports.CategoryService = class CategoryService {
     constructor(categoryModel) {

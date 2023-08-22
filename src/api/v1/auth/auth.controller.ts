@@ -3,7 +3,7 @@ import { User as UserDecorator } from '../common/decorator/user.decorator';
 import { LoginDTO, RegisterDTO } from '../ts/dto/auth.dto';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
 import { User } from '../ts/interfaces/user.d.type';
-import RestFullAPI from '../ts/utils/apiResponse';
+import RestFullAPI from '../utils/apiResponse';
 import { AuthService } from './auth.service';
 
 @Controller('auth')

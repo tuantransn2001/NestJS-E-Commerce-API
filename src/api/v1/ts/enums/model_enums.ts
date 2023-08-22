@@ -7,4 +7,6 @@ export enum MODEL_NAME {
   ORDER = 'Order',
   SHIPMENT = 'Shipment',
   ADDRESS = 'Address',
+  CONVERSATION = 'Conversation',
+  HEALTH_CHECKER = 'HealthChecker',
 }

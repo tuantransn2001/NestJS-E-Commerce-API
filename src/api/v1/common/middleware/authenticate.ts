@@ -6,7 +6,7 @@ import {
   JwtPayload,
   MyRequest,
 } from '../../ts/interfaces/common';
-import RestFullAPI from '../../ts/utils/apiResponse';
+import RestFullAPI from '../../utils/apiResponse';
 import { Injectable, NestMiddleware } from '@nestjs/common';
 
 @Injectable()

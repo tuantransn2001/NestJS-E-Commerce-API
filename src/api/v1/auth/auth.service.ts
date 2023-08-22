@@ -6,15 +6,15 @@ import { LoginDTO, RegisterDTO } from '../ts/dto/auth.dto';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
 import { MODEL_NAME } from '../ts/enums/model_enums';
 import { User } from '../ts/interfaces/user.d.type';
-import RestFullAPI from '../ts/utils/apiResponse';
-import HttpException from '../ts/utils/http.exception';
-import HashStringHandler from '../ts/utils/string.hash';
+import RestFullAPI from '../utils/apiResponse';
+import HttpException from '../utils/http.exception';
+import HashStringHandler from '../utils/string.hash';
 import { USER_ROLE } from '../ts/enums/user_enum';
 import {
   checkMissPropertyInObjectBaseOnValueCondition,
   isEmpty,
 } from '../common';
-import { handleServerError } from '../ts/utils/serverErrorHandler';
+import { handleServerError } from '../utils/serverErrorHandler';
 
 @Injectable()
 export class AuthService {
@@ -39,9 +39,9 @@ export class AuthService {
         );
         switch (isMatchPassword) {
           case true: {
-            const { id, firstName, lastName, email, type } = foundUser;
+            const { id, firstName, lastName, email, type, avatar } = foundUser;
             const payload = {
-              user: { id, firstName, lastName, email, type },
+              user: { id, firstName, lastName, email, type, avatar },
             };
 
             const token = sign(payload, process.env.JWT_TOKEN_SECRET_KEY, {

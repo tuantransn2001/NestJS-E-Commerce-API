@@ -6,7 +6,7 @@ import {
   randomIntFromInterval,
   randomStringByCharsetAndLength,
 } from '../common';
-import HashStringHandler from '../ts/utils/string.hash';
+import HashStringHandler from '../utils/string.hash';
 
 export const generateUser = async () => {
   const USER_ARRAY: User[] = [
@@ -19,6 +19,8 @@ export const generateUser = async () => {
       email: 'tuantransn2001@gmail.com',
       phoneNumber: '0364977325',
       password: await HashStringHandler.hash('password', 10),
+      avatar:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
     },
   ];
   for (let index = 0; index < 49; index++) {
@@ -45,6 +47,8 @@ export const generateUser = async () => {
       )}@gmail.com`,
       phoneNumber: `0${randomStringByCharsetAndLength('numeric', 9, false)}`,
       password: await HashStringHandler.hash('password', 10),
+      avatar:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
     };
 
     USER_ARRAY.push(newUser);

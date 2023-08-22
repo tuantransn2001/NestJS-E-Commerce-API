@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.API_PATH = exports.API_RESPONSE_STATUS = exports.STATUS_CODE = exports.STATUS_MESSAGE = void 0;
+exports.STATUS_CODE = exports.STATUS_MESSAGE = exports.API_PATH = exports.API_RESPONSE_STATUS = void 0;
 var API_RESPONSE_STATUS;
 (function (API_RESPONSE_STATUS) {
     API_RESPONSE_STATUS["SUCCESS"] = "Success";

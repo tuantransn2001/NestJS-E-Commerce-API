@@ -10,7 +10,7 @@ export declare class CategoryService {
         data: any;
     } | {
         statusCode: number;
-        error: import("../ts/utils/http.exception").default;
+        error: import("../utils/http.exception").default;
     }>;
     getByID({ id }: Partial<PaginationDTO>): Promise<{
         statusCode: number;
@@ -18,6 +18,6 @@ export declare class CategoryService {
         data: any;
     } | {
         statusCode: number;
-        error: import("../ts/utils/http.exception").default;
+        error: import("../utils/http.exception").default;
     }>;
 }

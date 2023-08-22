@@ -11,5 +11,7 @@ var MODEL_NAME;
     MODEL_NAME["ORDER"] = "Order";
     MODEL_NAME["SHIPMENT"] = "Shipment";
     MODEL_NAME["ADDRESS"] = "Address";
+    MODEL_NAME["CONVERSATION"] = "Conversation";
+    MODEL_NAME["HEALTH_CHECKER"] = "HealthChecker";
 })(MODEL_NAME || (exports.MODEL_NAME = MODEL_NAME = {}));
 //# sourceMappingURL=model_enums.js.map

@@ -18,17 +18,21 @@ const mongoose_1 = require("mongoose");
 const common_2 = require("../common");
 const api_enums_1 = require("../ts/enums/api_enums");
 const model_enums_1 = require("../ts/enums/model_enums");
-const apiResponse_1 = require("../ts/utils/apiResponse");
-const serverErrorHandler_1 = require("../ts/utils/serverErrorHandler");
-const urlSearchParam_1 = require("../ts/utils/urlSearchParam");
+const apiResponse_1 = require("../utils/apiResponse");
+const serverErrorHandler_1 = require("../utils/serverErrorHandler");
+const urlSearchParam_1 = require("../utils/urlSearchParam");
 let ProductService = exports.ProductService = class ProductService {
     constructor(productModel) {
         this.productModel = productModel;
     }
     async getAll({ page_number, page_size }, searchParam) {
         try {
-            const objFromSearchParam = urlSearchParam_1.default.urlParamsToObj(searchParam);
-            return (0, common_2.getAllRecordHandler)(this.productModel, { page_number, page_size }, [], objFromSearchParam);
+            const objFromSearchParam = urlSearchParam_1.URLSearchParam.urlParamsToObj(searchParam);
+            const objSearch = Object.keys((key) => ({
+                [key]: { $regex: objFromSearchParam[key], $options: 'i' },
+            }));
+            const result = await (0, common_2.getAllRecordHandler)(this.productModel, { page_number, page_size }, [], objSearch);
+            return result;
         }
         catch (err) {
             return (0, serverErrorHandler_1.handleServerError)(err);

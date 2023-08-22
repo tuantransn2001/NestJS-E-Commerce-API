@@ -17,8 +17,8 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("mongoose");
 const api_enums_1 = require("../ts/enums/api_enums");
 const model_enums_1 = require("../ts/enums/model_enums");
-const apiResponse_1 = require("../ts/utils/apiResponse");
-const serverErrorHandler_1 = require("../ts/utils/serverErrorHandler");
+const apiResponse_1 = require("../utils/apiResponse");
+const serverErrorHandler_1 = require("../utils/serverErrorHandler");
 let OrderService = exports.OrderService = class OrderService {
     constructor(orderModel) {
         this.orderModel = orderModel;

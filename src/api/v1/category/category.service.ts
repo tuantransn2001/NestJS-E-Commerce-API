@@ -1,9 +1,9 @@
 import { Model } from 'mongoose';
 import { Inject, Injectable } from '@nestjs/common';
 import { MODEL_NAME } from '../ts/enums/model_enums';
-import RestFullAPI from '../ts/utils/apiResponse';
+import RestFullAPI from '../utils/apiResponse';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
-import { handleServerError } from '../ts/utils/serverErrorHandler';
+import { handleServerError } from '../utils/serverErrorHandler';
 import { getAllRecordHandler } from '../common';
 import { Category } from '../ts/interfaces/category.d.type';
 import { PaginationDTO } from '../ts/dto/query.dto';

@@ -4,7 +4,7 @@ exports.CATEGORY_ARRAY = exports.generateUser = void 0;
 const uuid_1 = require("uuid");
 const user_enum_1 = require("../ts/enums/user_enum");
 const common_1 = require("../common");
-const string_hash_1 = require("../ts/utils/string.hash");
+const string_hash_1 = require("../utils/string.hash");
 const generateUser = async () => {
     const USER_ARRAY = [
         {
@@ -16,6 +16,7 @@ const generateUser = async () => {
             email: 'tuantransn2001@gmail.com',
             phoneNumber: '0364977325',
             password: await string_hash_1.default.hash('password', 10),
+            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
         },
     ];
     for (let index = 0; index < 49; index++) {
@@ -29,6 +30,7 @@ const generateUser = async () => {
             email: `${(0, common_1.randomStringByCharsetAndLength)('alphabetic', 4, false)}@gmail.com`,
             phoneNumber: `0${(0, common_1.randomStringByCharsetAndLength)('numeric', 9, false)}`,
             password: await string_hash_1.default.hash('password', 10),
+            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
         };
         USER_ARRAY.push(newUser);
     }

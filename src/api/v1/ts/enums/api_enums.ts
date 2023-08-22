@@ -1,14 +1,14 @@
-enum API_RESPONSE_STATUS {
+export enum API_RESPONSE_STATUS {
   SUCCESS = 'Success',
   FAIL = 'Fail',
 }
-enum API_PATH {
+export enum API_PATH {
   admin_me = '/api/admin/me',
   admin_login = '/api/admin/login',
   student_login = '/api/admin/student',
   search_list_user = '/api/admin/search-list-user',
 }
-enum STATUS_MESSAGE {
+export enum STATUS_MESSAGE {
   SUCCESS = 'Success',
   CONFLICT = 'Conflict',
   NOT_FOUND = 'Not Found',
@@ -20,7 +20,7 @@ enum STATUS_MESSAGE {
   SERVICES_UNAVAILABLE = 'Services Unavailable',
 }
 
-enum STATUS_CODE {
+export enum STATUS_CODE {
   STATUS_CODE_200 = 200, // * Get / Modify
   STATUS_CODE_201 = 201, // * Create
   STATUS_CODE_202 = 202, // * Delete
@@ -33,5 +33,3 @@ enum STATUS_CODE {
   STATUS_CODE_500 = 500, // ! Server Error
   STATUS_CODE_503 = 503, // ! Services Unavailable
 }
-
-export { STATUS_MESSAGE, STATUS_CODE, API_RESPONSE_STATUS, API_PATH };

@@ -9,7 +9,7 @@ export declare class CartController {
         data: any;
     } | {
         statusCode: number;
-        error: import("../ts/utils/http.exception").default;
+        error: import("../utils/http.exception").default;
     }>;
     addToCart(addItemToCart: AddItemToCartDTO): Promise<{
         statusCode: number;
@@ -17,6 +17,6 @@ export declare class CartController {
         data: any;
     } | {
         statusCode: number;
-        error: import("../ts/utils/http.exception").default;
+        error: import("../utils/http.exception").default;
     }>;
 }

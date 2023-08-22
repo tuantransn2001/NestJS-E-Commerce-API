@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleSeedData = exports.getAllRecordHandler = exports.checkMissPropertyInObjectBaseOnValueCondition = exports.randomStringByCharsetAndLength = exports.randomIntFromInterval = exports.asyncMap = exports.isEmpty = void 0;
+exports.handleGetUniqObjInArr = exports.handleSeedData = exports.getAllRecordHandler = exports.checkMissPropertyInObjectBaseOnValueCondition = exports.randomStringByCharsetAndLength = exports.randomIntFromInterval = exports.asyncMap = exports.isEmpty = void 0;
 const randomstring = require("randomstring");
-const apiResponse_1 = require("../ts/utils/apiResponse");
+const apiResponse_1 = require("../utils/apiResponse");
 const api_enums_1 = require("../ts/enums/api_enums");
-const serverErrorHandler_1 = require("../ts/utils/serverErrorHandler");
+const serverErrorHandler_1 = require("../utils/serverErrorHandler");
 const isEmpty = (target) => {
     return target instanceof Array
         ? target.length === 0
@@ -49,7 +49,7 @@ const getAllRecordHandler = async (Model, { page_number, page_size }, selectAttr
             : {};
         const targetProperties = !(0, exports.isEmpty)(selectAttributes) &&
             selectAttributes.reduce((res, attr) => {
-                return { ...res, [attr]: 1 };
+                return { ...res, [attr]: 1, _id: 0 };
             }, {});
         const queryResult = await Model.find(searchQuery, targetProperties)
             .skip(_skip)
@@ -77,4 +77,8 @@ const handleSeedData = (seedData) => {
     }
 };
 exports.handleSeedData = handleSeedData;
+const handleGetUniqObjInArr = (arr, properties) => [
+    ...new Map(arr.map((v) => [JSON.stringify(properties.map((k) => v[k])), v])).values(),
+];
+exports.handleGetUniqObjInArr = handleGetUniqObjInArr;
 //# sourceMappingURL=index.js.map

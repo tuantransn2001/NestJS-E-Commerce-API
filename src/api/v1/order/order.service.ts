@@ -3,9 +3,9 @@ import { Model } from 'mongoose';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
 import { MODEL_NAME } from '../ts/enums/model_enums';
 import { Order } from '../ts/interfaces/order.d.type';
-import RestFullAPI from '../ts/utils/apiResponse';
-import HttpException from '../ts/utils/http.exception';
-import { handleServerError } from '../ts/utils/serverErrorHandler';
+import RestFullAPI from '../utils/apiResponse';
+import HttpException from '../utils/http.exception';
+import { handleServerError } from '../utils/serverErrorHandler';
 import { CreateOrderDTO } from './dto/createOrderDTO';
 
 @Injectable()

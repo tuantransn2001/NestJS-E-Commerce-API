@@ -3,7 +3,7 @@ import { Cart } from '../ts/interfaces/cart.d.type';
 import { AddItemToCartDTO } from './dto/addToCartDTO';
 import { GetUserCartDTO } from './dto/getUserCartDTO';
 import { Product } from '../ts/interfaces/product.d.type';
-import HttpException from '../ts/utils/http.exception';
+import HttpException from '../utils/http.exception';
 export declare class CartService {
     private cartModel;
     private productModel;

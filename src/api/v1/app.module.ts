@@ -5,11 +5,13 @@ import { AddressModule } from './address/address.module';
 import { AuthModule } from './auth/auth.module';
 import { CartModule } from './cart/cart.module';
 import { CategoryModule } from './category/category.module';
+import { ChatModule } from './chat/chat.module';
 import { AuthenticateMiddleware } from './common/middleware/authenticate';
 import { SeedModule } from './database/seed/seed.module';
 import { OrderModule } from './order/order.module';
 import { PaymentModule } from './payment/payment.module';
 import { ProductModule } from './product/product.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -34,6 +36,8 @@ import { ProductModule } from './product/product.module';
     OrderModule,
     PaymentModule,
     AddressModule,
+    ChatModule,
+    UserModule,
   ],
 })
 export class AppModule {

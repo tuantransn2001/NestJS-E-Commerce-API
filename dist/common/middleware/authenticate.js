@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthenticateMiddleware = void 0;
 const jwt = require("jsonwebtoken");
 const api_enums_1 = require("../../ts/enums/api_enums");
-const apiResponse_1 = require("../../ts/utils/apiResponse");
+const apiResponse_1 = require("../../utils/apiResponse");
 const common_1 = require("@nestjs/common");
 let AuthenticateMiddleware = exports.AuthenticateMiddleware = class AuthenticateMiddleware {
     use(req, res, next) {

@@ -10,7 +10,7 @@ import {
   randomStringByCharsetAndLength,
 } from '../../common';
 import { USER_ROLE } from '../../ts/enums/user_enum';
-import HashStringHandler from '../../ts/utils/string.hash';
+import HashStringHandler from '../../utils/string.hash';
 import { Product } from '../../ts/interfaces/product.d.type';
 import {
   ADDRESS_SEEDER,
@@ -45,6 +45,8 @@ export class SeedService implements OnModuleInit {
         email: 'tuantransn2001@gmail.com',
         phoneNumber: '0364977325',
         password: await HashStringHandler.hash('password', 10),
+        avatar:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
       },
     ];
 
@@ -76,6 +78,8 @@ export class SeedService implements OnModuleInit {
         )}@gmail.com`,
         phoneNumber: `0${randomStringByCharsetAndLength('numeric', 9, false)}`,
         password: await HashStringHandler.hash('password', 10),
+        avatar:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
       };
       USER_ARRAY.push(newUser);
     }
@@ -332,19 +336,19 @@ export class SeedService implements OnModuleInit {
   // onModuleInit() is executed before the app bootstraped
   async onModuleInit() {
     try {
-      handleSeedData([
-        {
-          Model: this.userModel,
-          data: await this.generateUserMockData(),
-        },
-        {
-          Model: this.categoryModel,
-          data: this.generateCategoryMockData(),
-        },
-        { Model: this.productModel, data: PRODUCT_SEEDER },
-        { Model: this.paymentModel, data: PAYMENT_SEEDER },
-        { Model: this.addressModel, data: ADDRESS_SEEDER },
-      ]);
+      // handleSeedData([
+      //   {
+      //     Model: this.userModel,
+      //     data: await this.generateUserMockData(),
+      //   },
+      //   {
+      //     Model: this.categoryModel,
+      //     data: this.generateCategoryMockData(),
+      //   },
+      //   { Model: this.productModel, data: PRODUCT_SEEDER },
+      //   { Model: this.paymentModel, data: PAYMENT_SEEDER },
+      //   { Model: this.addressModel, data: ADDRESS_SEEDER },
+      // ]);
     } catch (error) {
       throw error;
     }

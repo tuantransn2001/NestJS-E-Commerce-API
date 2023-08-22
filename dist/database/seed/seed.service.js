@@ -19,8 +19,7 @@ const mongoose_1 = require("mongoose");
 const model_enums_1 = require("../../ts/enums/model_enums");
 const common_2 = require("../../common");
 const user_enum_1 = require("../../ts/enums/user_enum");
-const string_hash_1 = require("../../ts/utils/string.hash");
-const seeder_1 = require("../../data/seeder");
+const string_hash_1 = require("../../utils/string.hash");
 let SeedService = exports.SeedService = class SeedService {
     constructor(userModel, categoryModel, productModel, paymentModel, addressModel) {
         this.userModel = userModel;
@@ -40,6 +39,7 @@ let SeedService = exports.SeedService = class SeedService {
                 email: 'tuantransn2001@gmail.com',
                 phoneNumber: '0364977325',
                 password: await string_hash_1.default.hash('password', 10),
+                avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
             },
         ];
         for (let index = 0; index < 49; index++) {
@@ -57,6 +57,7 @@ let SeedService = exports.SeedService = class SeedService {
                 email: `${(0, common_2.randomStringByCharsetAndLength)('alphabetic', 4, false)}@gmail.com`,
                 phoneNumber: `0${(0, common_2.randomStringByCharsetAndLength)('numeric', 9, false)}`,
                 password: await string_hash_1.default.hash('password', 10),
+                avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
             };
             USER_ARRAY.push(newUser);
         }
@@ -295,19 +296,6 @@ let SeedService = exports.SeedService = class SeedService {
     }
     async onModuleInit() {
         try {
-            (0, common_2.handleSeedData)([
-                {
-                    Model: this.userModel,
-                    data: await this.generateUserMockData(),
-                },
-                {
-                    Model: this.categoryModel,
-                    data: this.generateCategoryMockData(),
-                },
-                { Model: this.productModel, data: seeder_1.PRODUCT_SEEDER },
-                { Model: this.paymentModel, data: seeder_1.PAYMENT_SEEDER },
-                { Model: this.addressModel, data: seeder_1.ADDRESS_SEEDER },
-            ]);
         }
         catch (error) {
             throw error;

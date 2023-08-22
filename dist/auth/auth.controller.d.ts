@@ -10,7 +10,7 @@ export declare class AuthController {
         data: any;
     } | {
         statusCode: number;
-        error: import("../ts/utils/http.exception").default;
+        error: import("../utils/http.exception").default;
     }>;
     register({ type, firstName, lastName, address, email, phoneNumber, password, }: RegisterDTO): Promise<{
         statusCode: number;
@@ -18,7 +18,7 @@ export declare class AuthController {
         data: any;
     } | {
         statusCode: number;
-        error: import("../ts/utils/http.exception").default;
+        error: import("../utils/http.exception").default;
     }>;
     me(user: User): Promise<{
         statusCode: number;
