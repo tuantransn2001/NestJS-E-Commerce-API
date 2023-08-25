@@ -21,7 +21,6 @@ let CategoryController = exports.CategoryController = class CategoryController {
         this.categoryService = categoryService;
     }
     async getAll(paginationDTO) {
-        console.log(paginationDTO);
         return await this.categoryService.getAll(paginationDTO);
     }
     async getByID({ id }) {

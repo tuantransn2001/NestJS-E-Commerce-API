@@ -5,6 +5,7 @@ import { PaginationDTO } from '../ts/dto/query.dto';
 import RestFullAPI from '../utils/apiResponse';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
 import { handleServerError } from '../utils/serverErrorHandler';
+import { User } from '../ts/interfaces/conversation.d.type';
 export const isEmpty = (target: ObjectType | any[]): boolean => {
   return target instanceof Array
     ? target.length === 0
@@ -103,8 +104,8 @@ export const handleSeedData = (seedData: ModelData) => {
   }
 };
 
-export const handleGetUniqObjInArr = (arr: any[], properties: string[]) => [
-  ...new Map(
-    arr.map((v) => [JSON.stringify(properties.map((k) => v[k])), v]),
-  ).values(),
-];
+export const handleCheckTwoUserIsOne = (sender: User, compareUser: User) => {
+  return sender.id === compareUser.id;
+};
+
+export const isSingleChat = (member: User[]) => member.length <= 2;

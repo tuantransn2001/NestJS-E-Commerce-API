@@ -43,3 +43,30 @@ export declare const ADDRESS_SEEDER: {
     address: string;
     status: string;
 }[];
+export declare const USER_SEEDER: {
+    id: string;
+    type: string;
+    firstName: string;
+    lastName: string;
+    address: string;
+    email: string;
+    phoneNumber: string;
+    password: string;
+    avatar: string;
+}[];
+export declare const CATEGORY_SEEDER: {
+    id: string;
+    title: string;
+    subTitle: string;
+    description: string[];
+    imgSrc: string;
+    contents: ({
+        title: string;
+        content: string[];
+        subTitle?: undefined;
+    } | {
+        title: string;
+        subTitle: string;
+        content: string[];
+    })[];
+}[];

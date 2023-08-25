@@ -53,19 +53,22 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   // ? ====================================================
   @SubscribeMessage(EVENTS.CLIENT.REQUEST_ROOM_MESSAGE)
   public async listenClientRequestRoomMessage(
-    @MessageBody() { id }: RequestRoomMessageDTO,
+    @MessageBody() requestRoomMessageDTO: RequestRoomMessageDTO,
   ) {
-    return await this.chatService.handleGetAllMessageByConversationID(id);
+    return await this.chatService.handleRequestRoomMessage(
+      requestRoomMessageDTO,
+      this.webSocketServer,
+    );
   }
   // ? ====================================================
   // ? ===============  REQUEST CONTACT LIST ============== /* =>> TODO
   // ? ====================================================
   @SubscribeMessage(EVENTS.CLIENT.REQUEST_CONTACT_LIST)
   public async listenClientRequestContactList(
-    @MessageBody() { id }: RequestContactListDTO,
+    @MessageBody() requestContactListDTO: RequestContactListDTO,
   ) {
     return await this.chatService.handleGetContactList(
-      { id },
+      requestContactListDTO,
       this.webSocketServer,
     );
   }

@@ -1,15 +1,13 @@
 export interface User {
   id: number;
-  name: string;
+  type: string;
+  firstName: string;
   avatar: string;
 }
 
-export interface Member {
-  id: string;
-}
 export interface Message {
   id: string;
-  sender: Member;
+  sender: User;
   content: string;
   isDelete?: boolean;
   createdAt?: Date;
@@ -18,7 +16,7 @@ export interface Message {
 export interface Conversation {
   id: string;
   name: string;
-  members: Member[];
+  members: User[];
   messages: Message[];
   isDelete?: boolean;
   createdAt?: Date;

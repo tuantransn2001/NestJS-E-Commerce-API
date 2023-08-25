@@ -9,6 +9,9 @@ export const ConversationSchema = new mongoose.Schema(
       type: [
         {
           id: { type: String },
+          firstName: { type: String },
+          type: { type: String },
+          avatar: { type: String },
         },
       ],
     },
@@ -16,11 +19,16 @@ export const ConversationSchema = new mongoose.Schema(
       type: [
         {
           id: { type: String, default: uuidv4() },
-          sender: { id: { type: String } },
+          sender: {
+            id: { type: String },
+            firstName: { type: String },
+            type: { type: String },
+            avatar: { type: String },
+          },
           content: { type: String },
           isDelete: { type: Boolean, default: false },
           createdAt: { type: Date, default: new Date() },
-          updatedAt: { type: Date },
+          updatedAt: { type: Date, default: new Date() },
         },
       ],
     },

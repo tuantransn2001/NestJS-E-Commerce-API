@@ -40,11 +40,11 @@ let ChatGateway = exports.ChatGateway = class ChatGateway {
         this.logger.log(`client join room with roomID:${roomID}`);
         return this.chatService.handleClientJoinRoom({ roomID }, this.webSocketServer);
     }
-    async listenClientRequestRoomMessage({ id }) {
-        return await this.chatService.handleGetAllMessageByConversationID(id);
+    async listenClientRequestRoomMessage(requestRoomMessageDTO) {
+        return await this.chatService.handleRequestRoomMessage(requestRoomMessageDTO, this.webSocketServer);
     }
-    async listenClientRequestContactList({ id }) {
-        return await this.chatService.handleGetContactList({ id }, this.webSocketServer);
+    async listenClientRequestContactList(requestContactListDTO) {
+        return await this.chatService.handleGetContactList(requestContactListDTO, this.webSocketServer);
     }
     async listenClientSendRoomMessage(payload) {
         const isConversationExist = payload.hasOwnProperty('conversationID') && payload.conversationID !== '';

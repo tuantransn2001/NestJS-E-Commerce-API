@@ -8,15 +8,18 @@ export declare const ConversationSchema: mongoose.Schema<any, mongoose.Model<any
 } & {
     members: {
         id?: string;
+        type?: string;
+        firstName?: string;
+        avatar?: string;
     }[];
     messages: {
         id: string;
         createdAt: Date;
+        updatedAt: Date;
         isDelete: boolean;
-        updatedAt?: Date;
         content?: string;
         sender?: {
-            id?: string;
+            type?: string;
         };
     }[];
     isDelete: boolean;
@@ -30,15 +33,18 @@ export declare const ConversationSchema: mongoose.Schema<any, mongoose.Model<any
 } & {
     members: {
         id?: string;
+        type?: string;
+        firstName?: string;
+        avatar?: string;
     }[];
     messages: {
         id: string;
         createdAt: Date;
+        updatedAt: Date;
         isDelete: boolean;
-        updatedAt?: Date;
         content?: string;
         sender?: {
-            id?: string;
+            type?: string;
         };
     }[];
     isDelete: boolean;
@@ -52,15 +58,18 @@ export declare const ConversationSchema: mongoose.Schema<any, mongoose.Model<any
 } & {
     members: {
         id?: string;
+        type?: string;
+        firstName?: string;
+        avatar?: string;
     }[];
     messages: {
         id: string;
         createdAt: Date;
+        updatedAt: Date;
         isDelete: boolean;
-        updatedAt?: Date;
         content?: string;
         sender?: {
-            id?: string;
+            type?: string;
         };
     }[];
     isDelete: boolean;

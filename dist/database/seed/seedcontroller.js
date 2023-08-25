@@ -18,7 +18,7 @@ let SeedController = exports.SeedController = class SeedController {
     }
     async getDataTest() {
         return {
-            product: this.seedService.generateProductMockData(),
+            category: await this.seedService.generateCategoryMockData(),
         };
     }
 };

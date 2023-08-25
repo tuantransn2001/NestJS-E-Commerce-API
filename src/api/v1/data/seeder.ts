@@ -24037,3 +24037,741 @@ export const ADDRESS_SEEDER = [
     status: 'active',
   },
 ];
+
+export const USER_SEEDER = [
+  {
+    id: '670b2bc9-c97b-494e-9f3b-82e299456c1f',
+    type: 'admin',
+    firstName: 'Tuan',
+    lastName: 'Tran',
+    address: 'HCM',
+    email: 'tuantransn2001@gmail.com',
+    phoneNumber: '0364977325',
+    password: '$2b$10$AUuHNEk64gKKM1dsN8unQu563Gl4rE8D6.0Tp4RdBosoQL5fbMPsu',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'cd5d51a9-09fe-4d4d-ad81-6fe91778f473',
+    type: 'customer',
+    firstName: 'customer_0',
+    lastName: 'customer_nhve',
+    address: 'Số nhà 17,địa chỉ: qoxqjavucg,Tp.HCM',
+    email: 'mycj@gmail.com',
+    phoneNumber: '0832468020',
+    password: '$2b$10$bT3tVvvFqNAjFwCh7VDyQu2By7xMOBGI/PkvcfLAZOJzn3nmjweOG',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '7f6565ff-ff8b-4d14-b0d6-72743966decc',
+    type: 'guest',
+    firstName: 'guest_1',
+    lastName: 'guest_kbsr',
+    address: 'Số nhà 82,địa chỉ: unquwjhnjv,Tp.HCM',
+    email: 'gdjs@gmail.com',
+    phoneNumber: '0786870833',
+    password: '$2b$10$ErkUpPjvIQBUWjgjncyobe7ymblBjOdB4jJmAFdg6W8GVPJmcT2Bq',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '9e3025ed-fd08-49c9-96eb-13d10cfe6db4',
+    type: 'customer',
+    firstName: 'customer_2',
+    lastName: 'customer_gvso',
+    address: 'Số nhà 22,địa chỉ: vqeblomdwk,Tp.HCM',
+    email: 'lrwm@gmail.com',
+    phoneNumber: '0750334551',
+    password: '$2b$10$CFwD110AF1JgC2kvCixniudN9zeUhYDZMwhn5x1r44TQbe.YHmBiC',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '233980fb-f43b-4d05-a613-a669ab69a542',
+    type: 'guest',
+    firstName: 'guest_3',
+    lastName: 'guest_uhnr',
+    address: 'Số nhà 86,địa chỉ: kkhihtoase,Tp.HCM',
+    email: 'raxb@gmail.com',
+    phoneNumber: '0866495243',
+    password: '$2b$10$Is46hMaSY2rcRhIUQ4bU3ehPLjzBiuxONxVJdlxllko5SLMSQhP7O',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '84519a83-cb0a-4b91-be9f-22fd5a99f35f',
+    type: 'customer',
+    firstName: 'customer_4',
+    lastName: 'customer_vvkz',
+    address: 'Số nhà 22,địa chỉ: qmxtxrnmzk,Tp.HCM',
+    email: 'aewv@gmail.com',
+    phoneNumber: '0691317174',
+    password: '$2b$10$gv1XDDmDjhVWNdGXYQ5Nd.JD7aL8Q.VyHitJ0sq0rf7RkA6jXAg0C',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '04269f81-3217-4295-8d73-b6dd804b69b6',
+    type: 'guest',
+    firstName: 'guest_5',
+    lastName: 'guest_hyzx',
+    address: 'Số nhà 21,địa chỉ: cdzfzzothz,Tp.HCM',
+    email: 'vpiq@gmail.com',
+    phoneNumber: '0352160453',
+    password: '$2b$10$wC4p1qVVxaM/i5OZvxUR4ezaQq9r69FF/4MpMZ6wsBomPGWC3X/ey',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '162f830a-5b5e-4320-9074-28b4e0edf10b',
+    type: 'customer',
+    firstName: 'customer_6',
+    lastName: 'customer_yftc',
+    address: 'Số nhà 100,địa chỉ: junbcossio,Tp.HCM',
+    email: 'xhll@gmail.com',
+    phoneNumber: '0190989044',
+    password: '$2b$10$6yBaY0L33tRLcENwrGqq.Oh4i7cVIaiU0wz.YKqr9/ZA8d/TxXAEm',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'b482de51-8e5e-440d-9046-55b0f27138a6',
+    type: 'guest',
+    firstName: 'guest_7',
+    lastName: 'guest_cohd',
+    address: 'Số nhà 100,địa chỉ: btlyyodixz,Tp.HCM',
+    email: 'krjk@gmail.com',
+    phoneNumber: '0137344777',
+    password: '$2b$10$AwIoaRlt6LKiD9wdGksmdendt3QDiF.yeW6vA3eYBJ.G/FeIw5NOu',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'f9363966-b9db-4921-8dc1-6a04df70a8fb',
+    type: 'customer',
+    firstName: 'customer_8',
+    lastName: 'customer_ccau',
+    address: 'Số nhà 39,địa chỉ: zznuubkinv,Tp.HCM',
+    email: 'tcrg@gmail.com',
+    phoneNumber: '0482688438',
+    password: '$2b$10$W2Y.vhzXiDBHOz3IIdatnuSUbItncQdr86j5sikjT.pqOPnZ7mFrW',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '0c5e40a5-92be-42ba-b63b-00c0a42c6222',
+    type: 'guest',
+    firstName: 'guest_9',
+    lastName: 'guest_khau',
+    address: 'Số nhà 61,địa chỉ: mhkyouwvgh,Tp.HCM',
+    email: 'advi@gmail.com',
+    phoneNumber: '0348846388',
+    password: '$2b$10$5HztfL3j1IO4fL9DFpScw.OgM30XG1i3eQLc0FpuN7J95XvXzWx9i',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '08b3baad-9141-4fbe-b7a7-d7e111e31526',
+    type: 'customer',
+    firstName: 'customer_10',
+    lastName: 'customer_wels',
+    address: 'Số nhà 11,địa chỉ: wjxdsaxtkz,Tp.HCM',
+    email: 'ihzy@gmail.com',
+    phoneNumber: '0688990501',
+    password: '$2b$10$rZUd2wiXJEnsc3ZDqdKkJuUgAKS9v9urk.Y/oCNFoDwIrOuX8xYFC',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'a0fc3a31-5ddd-4bcd-9fc3-49086c966d54',
+    type: 'guest',
+    firstName: 'guest_11',
+    lastName: 'guest_koee',
+    address: 'Số nhà 66,địa chỉ: drewujghcc,Tp.HCM',
+    email: 'xblc@gmail.com',
+    phoneNumber: '0353057953',
+    password: '$2b$10$vzvP5Gt1NfJp9gA0A7tneOMRzKwLUarhMtWy3VplIT3RNsb/ICCF2',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '2dabcf91-642a-4af9-bda3-c10e51ecea04',
+    type: 'customer',
+    firstName: 'customer_12',
+    lastName: 'customer_bsaw',
+    address: 'Số nhà 32,địa chỉ: xhftnfoszj,Tp.HCM',
+    email: 'icvy@gmail.com',
+    phoneNumber: '0652468024',
+    password: '$2b$10$cxte/M5MeZD7z/.5U8GvMeoC0G8Z9TvQlwfaSJs/odDSSgzsBg6Ce',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '6ffdc41b-20f4-4337-8aa6-8b4031e1b121',
+    type: 'guest',
+    firstName: 'guest_13',
+    lastName: 'guest_qhwo',
+    address: 'Số nhà 7,địa chỉ: ntehdqwzyl,Tp.HCM',
+    email: 'oymp@gmail.com',
+    phoneNumber: '0351999655',
+    password: '$2b$10$H4Ftv5JAgG6qtQYcqRrNie33ZgCsL0BLBxhYvKfpacDvwDM3SWBfC',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'a7d8ae04-a543-4d95-8a29-d95b4296f455',
+    type: 'customer',
+    firstName: 'customer_14',
+    lastName: 'customer_dblw',
+    address: 'Số nhà 76,địa chỉ: oqhkvselqk,Tp.HCM',
+    email: 'iqtc@gmail.com',
+    phoneNumber: '0799340422',
+    password: '$2b$10$eKVBAB4hxIWU8xkf0F4pRuoJMErem/bnaMUHp6.lCkFth.Uk9O7Yq',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '7bf47366-ad76-4bb8-9bbc-2ed81e797c63',
+    type: 'guest',
+    firstName: 'guest_15',
+    lastName: 'guest_tkuf',
+    address: 'Số nhà 86,địa chỉ: hhvvavrmdx,Tp.HCM',
+    email: 'yldk@gmail.com',
+    phoneNumber: '0869031453',
+    password: '$2b$10$5fTeWiADlt.bBwzljtPwW.RHIaNCAd.JJTa4Nbw6zXlZDWMPxhnqG',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '125075f2-346b-47f3-aa3a-233043fe0fe4',
+    type: 'customer',
+    firstName: 'customer_16',
+    lastName: 'customer_kcfk',
+    address: 'Số nhà 2,địa chỉ: inokhducea,Tp.HCM',
+    email: 'phal@gmail.com',
+    phoneNumber: '0936390048',
+    password: '$2b$10$XNGgUDDhlOoVcP5ihVgNNu8EfY8juwytzzs5Aiej/gGfen2NjNkhq',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '4b57d925-4b72-4af7-b427-1cd6473c7a95',
+    type: 'guest',
+    firstName: 'guest_17',
+    lastName: 'guest_ebtw',
+    address: 'Số nhà 47,địa chỉ: huwzabtqdn,Tp.HCM',
+    email: 'vjua@gmail.com',
+    phoneNumber: '0542166388',
+    password: '$2b$10$HZpHkrA5m2pQHjVGklVuwemIaRwpLW.5OmJZ9CABw8RV5ni4.bcxu',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '7687d654-a6de-4d41-a0b2-013b7cf4f1e8',
+    type: 'customer',
+    firstName: 'customer_18',
+    lastName: 'customer_xvwv',
+    address: 'Số nhà 32,địa chỉ: yfxyruacvc,Tp.HCM',
+    email: 'uuju@gmail.com',
+    phoneNumber: '0968363198',
+    password: '$2b$10$HnEzFUCJZBbfb9dU3QiRwevuuT/jMgviT/uqPmdUTLGGJmA.kvb8e',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'e95fb027-7a3b-4e36-859b-38eaa814e8c8',
+    type: 'guest',
+    firstName: 'guest_19',
+    lastName: 'guest_ruaw',
+    address: 'Số nhà 100,địa chỉ: fhcsghatoe,Tp.HCM',
+    email: 'ywhx@gmail.com',
+    phoneNumber: '0157971319',
+    password: '$2b$10$bnq0R6Df6nTfNUXX8SO/QuFCWyOxBo2LEXiTjAxKKzyn5hjEMGYYi',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'dee143f5-5824-432c-95fa-bf8ea008133d',
+    type: 'customer',
+    firstName: 'customer_20',
+    lastName: 'customer_ofzs',
+    address: 'Số nhà 11,địa chỉ: inorqvdqgh,Tp.HCM',
+    email: 'gdnc@gmail.com',
+    phoneNumber: '0456723478',
+    password: '$2b$10$Cot/5vbdPX9/x1Uxk7JoXufiRqqQchTkj749sWQdntd.6Lh5daNra',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '417a459a-9919-462c-bd7b-33978d1932bf',
+    type: 'guest',
+    firstName: 'guest_21',
+    lastName: 'guest_xyzb',
+    address: 'Số nhà 43,địa chỉ: lcbshszrwv,Tp.HCM',
+    email: 'fisn@gmail.com',
+    phoneNumber: '0016887154',
+    password: '$2b$10$WzGfqGPka5yEbqz/o3mSPOsTtZVEvV0FQJyPKfMJaZxVcCaEv67Qi',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '3bc61ca2-77df-476d-a1a1-57fabf64830c',
+    type: 'customer',
+    firstName: 'customer_22',
+    lastName: 'customer_ylxa',
+    address: 'Số nhà 9,địa chỉ: dzfemuxcgb,Tp.HCM',
+    email: 'lmiu@gmail.com',
+    phoneNumber: '0364472185',
+    password: '$2b$10$3hCxCkx/KPSkmMfsASDNHesqnVAcJgvpa1RzO6w2qZirtg/8NE8S6',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '50adb115-326f-4fcd-88ea-bb8faa5fa45f',
+    type: 'guest',
+    firstName: 'guest_23',
+    lastName: 'guest_nigf',
+    address: 'Số nhà 45,địa chỉ: bsjjeywznh,Tp.HCM',
+    email: 'wbqj@gmail.com',
+    phoneNumber: '0447345076',
+    password: '$2b$10$PnsNv2.MXr8bfUK3HU82COoWCrvtFQwKRO4ejsscuyTH.SvXgNCti',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'bc3c1591-3924-47ec-9462-80026a2590af',
+    type: 'customer',
+    firstName: 'customer_24',
+    lastName: 'customer_ynyq',
+    address: 'Số nhà 67,địa chỉ: cverohdfnh,Tp.HCM',
+    email: 'woyl@gmail.com',
+    phoneNumber: '0216633160',
+    password: '$2b$10$GRGN3qIjmYXoB9Htdrt6ZOOswNtRhYq4aWF8wVyjVtLw1qbEG9whq',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '173db75a-7d7f-4502-82f8-2d07c44cd38b',
+    type: 'guest',
+    firstName: 'guest_25',
+    lastName: 'guest_egxq',
+    address: 'Số nhà 90,địa chỉ: cjjyvtvdsi,Tp.HCM',
+    email: 'pddx@gmail.com',
+    phoneNumber: '0405654190',
+    password: '$2b$10$vdifuLrb2S3YwQinVaPMhudqbWYZXhlAwh3qcELZvmFv2l6HErYuS',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '728cfa4e-256b-4c61-9082-92cd617a1fb8',
+    type: 'customer',
+    firstName: 'customer_26',
+    lastName: 'customer_zdpq',
+    address: 'Số nhà 59,địa chỉ: cebtfqiefd,Tp.HCM',
+    email: 'vduv@gmail.com',
+    phoneNumber: '0541205535',
+    password: '$2b$10$R5Tmss27nhUAWe7th0hf.O7RRAMJR3ST8wuUjXk2tK9LLuNAoLUii',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '0b7ebe20-9a05-4ef9-835e-bded6feea113',
+    type: 'guest',
+    firstName: 'guest_27',
+    lastName: 'guest_cifq',
+    address: 'Số nhà 23,địa chỉ: nbobwzpxoc,Tp.HCM',
+    email: 'kiwk@gmail.com',
+    phoneNumber: '0650276699',
+    password: '$2b$10$EwJPdiSmeoFQtsr7w1IkHOIqfvsc3gkqhGoSQnXFtsAbvBll9NnSC',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '57d7641c-2c95-4182-bd46-05afd81528aa',
+    type: 'customer',
+    firstName: 'customer_28',
+    lastName: 'customer_chdl',
+    address: 'Số nhà 35,địa chỉ: pbiwjgngak,Tp.HCM',
+    email: 'nkty@gmail.com',
+    phoneNumber: '0848504019',
+    password: '$2b$10$pikilXS6r7kH0GRn.oqI.eRIWuOAwfimQ1ECUKoi8htQhxFXkJhRq',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '48ca0bc8-394a-42bd-a7c3-ea7dd86bedc0',
+    type: 'guest',
+    firstName: 'guest_29',
+    lastName: 'guest_tvlo',
+    address: 'Số nhà 88,địa chỉ: wzajaahufe,Tp.HCM',
+    email: 'ofta@gmail.com',
+    phoneNumber: '0517820223',
+    password: '$2b$10$mkym4L/0sWd/uXLRr7Voje7yA9ctHsSTY23nBE1f1pPXqzK9unqA2',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '7646fb05-626a-4cf3-a437-0c301dcdd40b',
+    type: 'customer',
+    firstName: 'customer_30',
+    lastName: 'customer_lunn',
+    address: 'Số nhà 85,địa chỉ: ubutllefqt,Tp.HCM',
+    email: 'wnpf@gmail.com',
+    phoneNumber: '0363740777',
+    password: '$2b$10$6kfyuDAlIKhGCXCNZLFmjuOytyQ1GN./.TU6lllzAnhymoY6EFE76',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'cac4ace3-b6bd-4b46-9fa7-f89916ee4343',
+    type: 'guest',
+    firstName: 'guest_31',
+    lastName: 'guest_amtv',
+    address: 'Số nhà 1,địa chỉ: esntjleazu,Tp.HCM',
+    email: 'cokw@gmail.com',
+    phoneNumber: '0173329897',
+    password: '$2b$10$AsfRpgO.EicVaERKnU/k4eFYN4ZZXvumiBE.8L00UxCjrntOLrrUW',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '34d728a6-7e61-457a-936f-db8b5829364e',
+    type: 'customer',
+    firstName: 'customer_32',
+    lastName: 'customer_fooa',
+    address: 'Số nhà 27,địa chỉ: wdcdcyqyjj,Tp.HCM',
+    email: 'iioo@gmail.com',
+    phoneNumber: '0861177167',
+    password: '$2b$10$ojLsujxKht.YZg3YFDrfk.rSFYG4zREj7t9XW9lXxquuXQ3VzBonW',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '5399d425-8663-4be0-b531-9a52a06800d7',
+    type: 'guest',
+    firstName: 'guest_33',
+    lastName: 'guest_mvly',
+    address: 'Số nhà 67,địa chỉ: antsxjnubl,Tp.HCM',
+    email: 'kbkb@gmail.com',
+    phoneNumber: '0655409829',
+    password: '$2b$10$E6jkkOEeIqb3nH/2.UtSWuFWLNDh7G5YGgwlU5uGikg5mq2qvzjXO',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'cbdc9082-33c8-47da-b2c7-1afe203d52af',
+    type: 'customer',
+    firstName: 'customer_34',
+    lastName: 'customer_opuv',
+    address: 'Số nhà 8,địa chỉ: otdqzwotqt,Tp.HCM',
+    email: 'olte@gmail.com',
+    phoneNumber: '0363640259',
+    password: '$2b$10$A0c2uDcyYPBZgQ7vhs.yjuRkmQScL9fHsO5mCschLiGSNSII76yv6',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '4de89e0f-93fd-41db-a6e1-8598d3d02ae6',
+    type: 'guest',
+    firstName: 'guest_35',
+    lastName: 'guest_himn',
+    address: 'Số nhà 24,địa chỉ: dkwaviaowh,Tp.HCM',
+    email: 'adoo@gmail.com',
+    phoneNumber: '0858085055',
+    password: '$2b$10$fwMCy2dvPvRrxOpqB0t6u.cQz38u2185JB6jC3YDJdRrqeikmHpAa',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'aaa01f9b-5202-43fe-8cb6-969b919edf7b',
+    type: 'customer',
+    firstName: 'customer_36',
+    lastName: 'customer_zpry',
+    address: 'Số nhà 20,địa chỉ: kpleimubni,Tp.HCM',
+    email: 'yhkz@gmail.com',
+    phoneNumber: '0265827948',
+    password: '$2b$10$Rv2/cQTF1mRoK2qC9YZK5uHDR5z5nXDN8nA7xQ5MpuAcgGKWR5x6S',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '169e464c-4bdc-4e83-9c4d-88dd210f7d1f',
+    type: 'guest',
+    firstName: 'guest_37',
+    lastName: 'guest_ylem',
+    address: 'Số nhà 44,địa chỉ: aulltxkxdj,Tp.HCM',
+    email: 'mzbg@gmail.com',
+    phoneNumber: '0580660023',
+    password: '$2b$10$z9XFDePm4F3o9dwjULjuQOkGqFWVobRS5tZXwd/nsyXKEBTFQcTta',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '36fcd3d4-0495-4115-8a31-488fc5819386',
+    type: 'customer',
+    firstName: 'customer_38',
+    lastName: 'customer_nkpi',
+    address: 'Số nhà 49,địa chỉ: bqirulpaoc,Tp.HCM',
+    email: 'xoxo@gmail.com',
+    phoneNumber: '0336867534',
+    password: '$2b$10$RHebqhrifDIntf2qYycL1O293bhgD7qnq1ILUFfgxQH7wULbs5swS',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '153f6974-7a82-47d8-8ddf-239719222a34',
+    type: 'guest',
+    firstName: 'guest_39',
+    lastName: 'guest_rozt',
+    address: 'Số nhà 81,địa chỉ: soeztzqrjv,Tp.HCM',
+    email: 'qjyn@gmail.com',
+    phoneNumber: '0741403121',
+    password: '$2b$10$vrLLJKtigHq4li68Eezb1.I1OzlZxhJTtpg5nEfZo4V4Xfmij50Fy',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '82a88ed6-22c3-4942-844d-37a96d1405ff',
+    type: 'customer',
+    firstName: 'customer_40',
+    lastName: 'customer_vzgs',
+    address: 'Số nhà 83,địa chỉ: akcgzmuqdm,Tp.HCM',
+    email: 'xtyz@gmail.com',
+    phoneNumber: '0932747283',
+    password: '$2b$10$feO/U6g8Z4BhF2xBROE8wet.8E0Fgt3SkDTZntZxsuM7CMS1x/SDO',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'acd21cdd-af5f-44c9-92be-7a20201dadec',
+    type: 'guest',
+    firstName: 'guest_41',
+    lastName: 'guest_lstu',
+    address: 'Số nhà 58,địa chỉ: plcwmptrow,Tp.HCM',
+    email: 'rcpy@gmail.com',
+    phoneNumber: '0400853931',
+    password: '$2b$10$l2./6mkRDJ79NCFeDxFJPOuipvL/CxSy9mduMkOvI5haxkICwYOWW',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '2dfe4731-6bf4-462f-a3fc-3fae92e0dc03',
+    type: 'customer',
+    firstName: 'customer_42',
+    lastName: 'customer_szkv',
+    address: 'Số nhà 4,địa chỉ: rlfzynqcfj,Tp.HCM',
+    email: 'ufbv@gmail.com',
+    phoneNumber: '0522582516',
+    password: '$2b$10$bcxk3JWKSY828mwhpUi9Te9W5FzrjD9jOsOwF9FGgJBF31nMqMfJe',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'cef252b3-329e-457a-9f2d-fa4cd4348b38',
+    type: 'guest',
+    firstName: 'guest_43',
+    lastName: 'guest_cgtn',
+    address: 'Số nhà 3,địa chỉ: qjxabpmriv,Tp.HCM',
+    email: 'etyf@gmail.com',
+    phoneNumber: '0757138270',
+    password: '$2b$10$QFt6t4oiA2oPBUyt.7fERubcHaOlkJvv9a.5cA9EEmh9xiTUAsGlS',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '16b70307-2a5a-45c4-87e1-ac721d62d3e8',
+    type: 'customer',
+    firstName: 'customer_44',
+    lastName: 'customer_owhu',
+    address: 'Số nhà 6,địa chỉ: omednpbnna,Tp.HCM',
+    email: 'nlaz@gmail.com',
+    phoneNumber: '0971430972',
+    password: '$2b$10$oI7GntA7mKkrg7aDwELHxu/VU8P48h2GkmXl2aRd7xsBNWnMVkgw2',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: '75c5282c-3b3d-447e-9d41-c2dc206a866a',
+    type: 'guest',
+    firstName: 'guest_45',
+    lastName: 'guest_qlbo',
+    address: 'Số nhà 95,địa chỉ: rfjlvpezgo,Tp.HCM',
+    email: 'ncys@gmail.com',
+    phoneNumber: '0955754502',
+    password: '$2b$10$XUq2YRDV6cu/zIZN5fe6GuTnyCaTlTDXlyqGeRGPLnCHrHUE44vJK',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'b98bc8b1-d5fc-4f5a-abcc-6612260e1908',
+    type: 'customer',
+    firstName: 'customer_46',
+    lastName: 'customer_swlv',
+    address: 'Số nhà 11,địa chỉ: rgxjwjfwhn,Tp.HCM',
+    email: 'imyu@gmail.com',
+    phoneNumber: '0427001095',
+    password: '$2b$10$N6GILD8FScSDNIMOoJOIHOyMSxY0YIHlkBiB21Da8Aun3WKcSE8mq',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'f574d0c3-f1e8-4620-9cf1-9fe8ae991575',
+    type: 'guest',
+    firstName: 'guest_47',
+    lastName: 'guest_lmkz',
+    address: 'Số nhà 97,địa chỉ: sowgwasiac,Tp.HCM',
+    email: 'rypf@gmail.com',
+    phoneNumber: '0013658100',
+    password: '$2b$10$.Kh8.2AHyZVtjPLs7vMF8.zwdWHthqa0fsqgpTc0gc/crZ65G.FIa',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+  {
+    id: 'c4e98f50-ecc7-4e9e-a048-aa3a0de9c239',
+    type: 'customer',
+    firstName: 'customer_48',
+    lastName: 'customer_osof',
+    address: 'Số nhà 29,địa chỉ: fdejhgdcbi,Tp.HCM',
+    email: 'zkvw@gmail.com',
+    phoneNumber: '0265773873',
+    password: '$2b$10$8BwvvuZ4U9ooqI9Pv1NtzOeXZNKDNiGY3D.iMMVzuZIFNtU0BTaDW',
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+  },
+];
+
+export const CATEGORY_SEEDER = [
+  {
+    id: '6492dfce-b143-4bd7-9fd1-ac5af536bd6a',
+    title: 'SOFAS & CHAIRS',
+    subTitle: 'THE KEY TO COMFORT? START WITH AN EXCEPTIONAL SOFA.',
+    description: [
+      'Every living space is different, whether you want to lounge, entertain or curl up. With our range of sofas and chairs, you’re certain to find the right style for the heart of your home, from traditional designs to modern modulars.',
+    ],
+    imgSrc: 'https://www.lenleys.co.uk/wp-content/uploads/2022/03/Ralphie.webp',
+    contents: [
+      {
+        title: 'SENSATIONAL STYLE',
+        content: [
+          'Our buyers literally search far and wide across the globe to find the best, high quality fashionable sofas that come from some of biggest and brightest names in design and manufacturing. Sink into designs from Orla Kiely, Collins & Hayes, Stressless, Parker Knoll, Himolla, ercol and many more.',
+        ],
+      },
+      {
+        title: "LET'S TRANSFORM YOUR SPACE",
+        subTitle:
+          'At Lenleys Home we have a passion for high quality furniture that suits all tastes and fashions.',
+        content: [
+          'Our ranges are available in numerous coloured fabrics and patterns, and we stock a beautiful array of both manual and electric recliner sofas, love seats, and chaise end combinations. Tempted to make a change.',
+        ],
+      },
+    ],
+  },
+  {
+    id: '9bb476fd-2c59-4a7a-9a00-83d044ac3bc8',
+    title: 'BEDS & BEDROOM',
+    subTitle: 'TREAT YOURSELF TO A BETTER NIGHT’S SLEEP, FOREVER.',
+    description: [
+      'Don’t compromise when it comes to your comfort at night, and choose the right bed and bedroom furniture to turn a bedroom into your own personal sanctuary.',
+      'At Lenleys Home we have a beautiful, extensive selection of beds and bedroom furniture on display in our showrooms ranging from traditional style to modern contemporary designs. ',
+    ],
+    imgSrc:
+      'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
+    contents: [
+      {
+        title: 'BEAUTIFUL BEDROOMS',
+        content: [
+          'We stock an eclectic and beautiful range of beds in all styles and sizes, including Vispring, Dunlopillo, Harrison Spinks, Hypnos, and ercol.',
+          null,
+          'Finish the look with bedside table, chests of drawers, dressing tables, wardrobes, storage chests and more, all in stunning matching styles. Need a mattress? We stock only the best in store.',
+        ],
+      },
+      {
+        title: "LET'S TRANSFORM YOUR SPACE",
+        subTitle:
+          'At Lenleys Home we have a passion for high quality furniture that suits all tastes and fashions.',
+        content: [
+          'Our aim is to provide you with a range of home furnishing solutions that ensures you can realise your vision for your home. We are exceptionally proud of the reputation that we have built up over the years and we’re pleased to be well known for offering such a great range of beds and bedroom furniture in Kent.',
+        ],
+      },
+    ],
+  },
+  {
+    id: '0b2b48b5-6d6c-4271-a6d1-d7ed3a8d1b5d',
+    title: 'LIVING ROOM',
+    subTitle: 'BRING YOUR LIVING ROOM TO LIFE.',
+    description: [
+      'Our range of living room furniture will allow you to build the perfect room to your exacting tastes with minimal fuss.',
+    ],
+    imgSrc:
+      'https://www.lenleys.co.uk/wp-content/uploads/2022/06/Avignon-Dining-17.jpg',
+    contents: [
+      {
+        title: 'LUXURIOUS LIVING',
+        content: [
+          'Whether you want a sleek minimalist look to your chill out zone, or want oodles of sumptuous colours, textures and shapes, we stock everything you need to make your house a home, with coffee tables, lamp tables, console tables, desks and bookcases.',
+        ],
+      },
+      {
+        title: "LET'S TRANSFORM YOUR SPACE",
+        subTitle:
+          'At Lenleys Home we have a passion for high quality furniture that suits all tastes and fashions.',
+        content: [
+          'Start browsing and building, and don’t forget to ask for our expert advice….',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'c6fc80de-bbf5-4f28-8cd7-7de8f6f80978',
+    title: 'DINING ROOM',
+    subTitle: 'IT’S TIME TO DINE OUT ON YOUR HOME’S NEW LOOK.',
+    description: [
+      'At Lenleys Home we have a fantastic selection of dining room furniture on offer in our showrooms ranging from traditional style to contemporary design.',
+    ],
+    imgSrc:
+      'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
+    contents: [
+      {
+        title: 'DIVINE DINING',
+        content: [
+          'We have a striking array of dining furniture, from some of the UK and Europe’s finest manufacturers, including Venjakob, Ercol, Habufa, ALF Italia, TCH, Cattelan Italia, Calligaris and many more. Like all of our furniture, our dining ranges can be bespoke to your needs, with many interchangeable options, finishes and sizes.',
+        ],
+      },
+      {
+        title: "LET'S TRANSFORM YOUR SPACE",
+        subTitle:
+          'At Lenleys Home we have a passion for high quality furniture that suits all tastes and fashions.',
+        content: [
+          'Solid wood, sleek glass, marble top, hardened ceramic, traditional, contemporary, Scandinavian – the choice is yours at Lenleys.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'cab4ef04-125c-4157-b557-46fe22b07e07',
+    title: 'FLOORING',
+    subTitle: 'INCREDIBLE FLOORING FOR ANY HOME',
+    description: [
+      'The flooring design studio at Lenleys Home is host to some of the most trusted brands in flooring.',
+    ],
+    imgSrc:
+      'https://www.lenleys.co.uk/wp-content/uploads/2022/03/tch302-1024x576.jpg',
+    contents: [
+      {
+        title: 'DIVINE DINING',
+        content: [
+          'We have a striking array of dining furniture, from some of the UK and Europe’s finest manufacturers, including Venjakob, Ercol, Habufa, ALF Italia, TCH, Cattelan Italia, Calligaris and many more. Like all of our furniture, our dining ranges can be bespoke to your needs, with many interchangeable options, finishes and sizes.',
+        ],
+      },
+      {
+        title: "LET'S TRANSFORM YOUR SPACE",
+        subTitle:
+          'At Lenleys Home we have a passion for high quality furniture that suits all tastes and fashions.',
+        content: [
+          'Solid wood, sleek glass, marble top, hardened ceramic, traditional, contemporary, Scandinavian – the choice is yours at Lenleys.',
+        ],
+      },
+    ],
+  },
+];

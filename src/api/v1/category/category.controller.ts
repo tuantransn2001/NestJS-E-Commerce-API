@@ -7,7 +7,6 @@ export class CategoryController {
   constructor(private categoryService: CategoryService) {}
   @Get('/get-all')
   public async getAll(@Query() paginationDTO: PaginationDTO) {
-    console.log(paginationDTO);
     return await this.categoryService.getAll(paginationDTO);
   }
   @Get('/get-by-id')

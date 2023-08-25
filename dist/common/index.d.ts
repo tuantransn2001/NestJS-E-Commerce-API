@@ -1,6 +1,7 @@
 import { AppModel, ModelData, ObjectType } from '../ts/types/common';
 import { Falsy } from 'rxjs';
 import { PaginationDTO } from '../ts/dto/query.dto';
+import { User } from '../ts/interfaces/conversation.d.type';
 export declare const isEmpty: (target: ObjectType | any[]) => boolean;
 export declare const asyncMap: (arr: any[], callback: (item: any) => any) => Promise<any[]>;
 export declare const randomIntFromInterval: (min: number, max: number) => number;
@@ -15,4 +16,5 @@ export declare const getAllRecordHandler: (Model: AppModel, { page_number, page_
     error: import("../utils/http.exception").default;
 }>;
 export declare const handleSeedData: (seedData: ModelData) => void;
-export declare const handleGetUniqObjInArr: (arr: any[], properties: string[]) => any[];
+export declare const handleCheckTwoUserIsOne: (sender: User, compareUser: User) => boolean;
+export declare const isSingleChat: (member: User[]) => boolean;

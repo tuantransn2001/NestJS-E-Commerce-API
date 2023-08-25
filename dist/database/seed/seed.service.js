@@ -20,6 +20,7 @@ const model_enums_1 = require("../../ts/enums/model_enums");
 const common_2 = require("../../common");
 const user_enum_1 = require("../../ts/enums/user_enum");
 const string_hash_1 = require("../../utils/string.hash");
+const seeder_1 = require("../../data/seeder");
 let SeedService = exports.SeedService = class SeedService {
     constructor(userModel, categoryModel, productModel, paymentModel, addressModel) {
         this.userModel = userModel;
@@ -47,11 +48,9 @@ let SeedService = exports.SeedService = class SeedService {
             const newUser = {
                 id: (0, uuid_1.v4)(),
                 type: userType,
-                firstName: userType +
-                    ' ' +
-                    (0, common_2.randomStringByCharsetAndLength)('alphabetic', 4, false),
+                firstName: userType + '_' + index,
                 lastName: userType +
-                    ' ' +
+                    '_' +
                     (0, common_2.randomStringByCharsetAndLength)('alphabetic', 4, false),
                 address: `Số nhà ${(0, common_2.randomIntFromInterval)(1, 100)},địa chỉ: ${(0, common_2.randomStringByCharsetAndLength)('alphabetic', 10, false)},Tp.HCM`,
                 email: `${(0, common_2.randomStringByCharsetAndLength)('alphabetic', 4, false)}@gmail.com`,
@@ -296,6 +295,19 @@ let SeedService = exports.SeedService = class SeedService {
     }
     async onModuleInit() {
         try {
+            (0, common_2.handleSeedData)([
+                {
+                    Model: this.userModel,
+                    data: seeder_1.USER_SEEDER,
+                },
+                {
+                    Model: this.categoryModel,
+                    data: seeder_1.CATEGORY_SEEDER,
+                },
+                { Model: this.productModel, data: seeder_1.PRODUCT_SEEDER },
+                { Model: this.paymentModel, data: seeder_1.PAYMENT_SEEDER },
+                { Model: this.addressModel, data: seeder_1.ADDRESS_SEEDER },
+            ]);
         }
         catch (error) {
             throw error;

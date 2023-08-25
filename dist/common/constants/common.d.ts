@@ -12,6 +12,7 @@ export declare const EVENTS: {
     SERVER: {
         JOINED_ROOM: string;
         RECEIVED_ROOM_MESSAGE: string;
+        RECEIVED_CONTACT_LIST: string;
         DELETE_MESSAGE_RESULT: string;
         DELETE_CONVERSATION_RESULT: string;
         IS_TYPING: string;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleGetUniqObjInArr = exports.handleSeedData = exports.getAllRecordHandler = exports.checkMissPropertyInObjectBaseOnValueCondition = exports.randomStringByCharsetAndLength = exports.randomIntFromInterval = exports.asyncMap = exports.isEmpty = void 0;
+exports.isSingleChat = exports.handleCheckTwoUserIsOne = exports.handleSeedData = exports.getAllRecordHandler = exports.checkMissPropertyInObjectBaseOnValueCondition = exports.randomStringByCharsetAndLength = exports.randomIntFromInterval = exports.asyncMap = exports.isEmpty = void 0;
 const randomstring = require("randomstring");
 const apiResponse_1 = require("../utils/apiResponse");
 const api_enums_1 = require("../ts/enums/api_enums");
@@ -77,8 +77,10 @@ const handleSeedData = (seedData) => {
     }
 };
 exports.handleSeedData = handleSeedData;
-const handleGetUniqObjInArr = (arr, properties) => [
-    ...new Map(arr.map((v) => [JSON.stringify(properties.map((k) => v[k])), v])).values(),
-];
-exports.handleGetUniqObjInArr = handleGetUniqObjInArr;
+const handleCheckTwoUserIsOne = (sender, compareUser) => {
+    return sender.id === compareUser.id;
+};
+exports.handleCheckTwoUserIsOne = handleCheckTwoUserIsOne;
+const isSingleChat = (member) => member.length <= 2;
+exports.isSingleChat = isSingleChat;
 //# sourceMappingURL=index.js.map

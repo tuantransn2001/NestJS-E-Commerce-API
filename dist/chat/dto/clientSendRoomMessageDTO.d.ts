@@ -1,6 +1,6 @@
-import { Member, Message } from '../../ts/interfaces/conversation.d.type';
+import { Message, User } from '../../ts/interfaces/conversation.d.type';
 export declare class ClientSendRoomMessDTO {
     conversationID?: string;
-    members: Member[];
+    members: User[];
     message: Message;
 }

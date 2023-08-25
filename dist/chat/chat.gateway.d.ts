@@ -16,15 +16,8 @@ export declare class ChatGateway implements OnGatewayConnection, OnGatewayDiscon
     handleConnection(client: Socket): void;
     handleDisconnect(client: Socket): void;
     listenClientJoinRoom({ roomID }: ClientJoinRoomDTO): void;
-    listenClientRequestRoomMessage({ id }: RequestRoomMessageDTO): Promise<{
-        statusCode: number;
-        message: string;
-        data: any;
-    } | {
-        statusCode: number;
-        error: import("../utils/http.exception").default;
-    }>;
-    listenClientRequestContactList({ id }: RequestContactListDTO): Promise<void>;
+    listenClientRequestRoomMessage(requestRoomMessageDTO: RequestRoomMessageDTO): Promise<boolean>;
+    listenClientRequestContactList(requestContactListDTO: RequestContactListDTO): Promise<void>;
     listenClientSendRoomMessage(payload: ClientSendRoomMessDTO): Promise<void>;
     listenUserTyping(payload: TypingDTO): Promise<void>;
     listenUserDeleteMessageByID(payload: DeleteMessageDTO): Promise<void>;

@@ -14,8 +14,10 @@ import HashStringHandler from '../../utils/string.hash';
 import { Product } from '../../ts/interfaces/product.d.type';
 import {
   ADDRESS_SEEDER,
+  CATEGORY_SEEDER,
   PAYMENT_SEEDER,
   PRODUCT_SEEDER,
+  USER_SEEDER,
 } from '../../data/seeder';
 import { Payment } from '../../ts/interfaces/payment.type';
 import { Address } from '../../ts/interfaces/address.d.type';
@@ -55,13 +57,10 @@ export class SeedService implements OnModuleInit {
       const newUser: User = {
         id: uuidv4(),
         type: userType,
-        firstName:
-          userType +
-          ' ' +
-          randomStringByCharsetAndLength('alphabetic', 4, false),
+        firstName: userType + '_' + index,
         lastName:
           userType +
-          ' ' +
+          '_' +
           randomStringByCharsetAndLength('alphabetic', 4, false),
         address: `Số nhà ${randomIntFromInterval(
           1,
@@ -336,19 +335,19 @@ export class SeedService implements OnModuleInit {
   // onModuleInit() is executed before the app bootstraped
   async onModuleInit() {
     try {
-      // handleSeedData([
-      //   {
-      //     Model: this.userModel,
-      //     data: await this.generateUserMockData(),
-      //   },
-      //   {
-      //     Model: this.categoryModel,
-      //     data: this.generateCategoryMockData(),
-      //   },
-      //   { Model: this.productModel, data: PRODUCT_SEEDER },
-      //   { Model: this.paymentModel, data: PAYMENT_SEEDER },
-      //   { Model: this.addressModel, data: ADDRESS_SEEDER },
-      // ]);
+      handleSeedData([
+        {
+          Model: this.userModel,
+          data: USER_SEEDER,
+        },
+        {
+          Model: this.categoryModel,
+          data: CATEGORY_SEEDER,
+        },
+        { Model: this.productModel, data: PRODUCT_SEEDER },
+        { Model: this.paymentModel, data: PAYMENT_SEEDER },
+        { Model: this.addressModel, data: ADDRESS_SEEDER },
+      ]);
     } catch (error) {
       throw error;
     }

@@ -8,8 +8,7 @@ export class SeedController {
   @Get('/get-data-test')
   public async getDataTest() {
     return {
-      // user: await this.seedService.generateUserMockData(),
-      product: this.seedService.generateProductMockData(),
+      category: await this.seedService.generateCategoryMockData(),
     };
   }
 }

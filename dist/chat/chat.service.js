@@ -21,7 +21,7 @@ const model_enums_1 = require("../ts/enums/model_enums");
 const common_2 = require("../common/constants/common");
 const apiResponse_1 = require("../utils/apiResponse");
 const serverErrorHandler_1 = require("../utils/serverErrorHandler");
-const common_3 = require("../common");
+const helpers_1 = require("./helpers");
 let ChatService = exports.ChatService = class ChatService {
     constructor(conversationModel) {
         this.conversationModel = conversationModel;
@@ -36,56 +36,12 @@ let ChatService = exports.ChatService = class ChatService {
             $push: { messages: { ...message, id: (0, uuid_1.v4)() } },
         })
             .then(async () => {
-            const responseConversation = await this.handleGetAllMessageByConversationID(conversationID);
+            const responseConversation = await (0, helpers_1.handleGetAllMessageByConversationID)(this.conversationModel, conversationID);
             server.sockets.emit(common_2.EVENTS.SERVER.RECEIVED_ROOM_MESSAGE, responseConversation);
         })
             .catch((err) => {
             server.sockets.emit(common_2.EVENTS.SERVER.RECEIVED_ROOM_MESSAGE, (0, serverErrorHandler_1.handleServerError)(err));
         });
-    }
-    handleFilterMessageAlreadyExist(messages) {
-        return (0, common_3.isEmpty)(messages)
-            ? []
-            : messages.reduce((messList, { content, sender, isDelete, id, createdAt, updatedAt }) => {
-                !isDelete &&
-                    messList.push({
-                        id,
-                        content,
-                        sender,
-                        createdAt,
-                        updatedAt,
-                    });
-                return messList;
-            }, []);
-    }
-    async handleGetAllMessageByConversationID(id) {
-        try {
-            const foundConversation = await this.conversationModel.findOne({
-                id,
-                isDelete: false,
-            }, {
-                __v: 0,
-                isDelete: 0,
-                _id: 0,
-                'messages._id': 0,
-            });
-            if (!(0, common_3.isEmpty)(foundConversation)) {
-                const responseData = {
-                    conversationID: id,
-                    members: foundConversation.members,
-                    messages: this.handleFilterMessageAlreadyExist(foundConversation.messages),
-                };
-                return apiResponse_1.default.onSuccess(api_enums_1.STATUS_CODE.STATUS_CODE_200, api_enums_1.STATUS_MESSAGE.SUCCESS, responseData);
-            }
-            else {
-                return apiResponse_1.default.onFail(api_enums_1.STATUS_CODE.STATUS_CODE_404, {
-                    message: api_enums_1.STATUS_MESSAGE.NOT_FOUND,
-                });
-            }
-        }
-        catch (err) {
-            return (0, serverErrorHandler_1.handleServerError)(err);
-        }
     }
     async handleClientSendFirstRoomMessage({ members, message }, server) {
         const conversationID = (0, uuid_1.v4)();
@@ -98,7 +54,7 @@ let ChatService = exports.ChatService = class ChatService {
         await this.conversationModel
             .create(newConversationDocument)
             .then(async (response) => {
-            const responseConversation = await this.handleGetAllMessageByConversationID(conversationID);
+            const responseConversation = await (0, helpers_1.handleGetAllMessageByConversationID)(this.conversationModel, conversationID);
             server.sockets.socketsJoin(response.id);
             server.sockets.emit(common_2.EVENTS.SERVER.RECEIVED_ROOM_MESSAGE, responseConversation);
         })
@@ -126,10 +82,6 @@ let ChatService = exports.ChatService = class ChatService {
             server.sockets.emit(common_2.EVENTS.SERVER.DELETE_MESSAGE_RESULT, (0, serverErrorHandler_1.handleServerError)(err));
         });
     }
-    handleGetLastMessage(messages) {
-        const { content, updatedAt: timeMessage } = messages[messages.length - 1];
-        return { content, timeMessage };
-    }
     async handleGetContactList({ id }, server) {
         const foundUserContactList = await this.conversationModel.find({
             members: { $elemMatch: { id } },
@@ -139,13 +91,13 @@ let ChatService = exports.ChatService = class ChatService {
             _id: 0,
             'members._id': 0,
         });
-        server.sockets.emit('', apiResponse_1.default.onSuccess(api_enums_1.STATUS_CODE.STATUS_CODE_200, api_enums_1.STATUS_MESSAGE.SUCCESS, foundUserContactList.map((userContactItem) => {
+        server.emit(common_2.EVENTS.SERVER.RECEIVED_CONTACT_LIST, apiResponse_1.default.onSuccess(api_enums_1.STATUS_CODE.STATUS_CODE_200, api_enums_1.STATUS_MESSAGE.SUCCESS, foundUserContactList.map((userContactItem) => {
             const { id: conversationID, members, name, messages, createdAt, updatedAt, } = userContactItem;
             return {
                 conversationID,
                 name,
                 members,
-                lastMessage: this.handleGetLastMessage(messages),
+                lastMessage: (0, helpers_1.handleGetLastMessage)(messages),
                 createdAt,
                 updatedAt,
             };
@@ -153,6 +105,15 @@ let ChatService = exports.ChatService = class ChatService {
     }
     async typing({ sender, isTyping }, server) {
         server.sockets.emit(common_2.EVENTS.SERVER.IS_TYPING, apiResponse_1.default.onSuccess(api_enums_1.STATUS_CODE.STATUS_CODE_200, api_enums_1.STATUS_MESSAGE.SUCCESS, { sender, isTyping }));
+    }
+    async handleRequestRoomMessage(requestRoomMessageDTO, server) {
+        const isConversationExist = requestRoomMessageDTO.id !== '';
+        if (isConversationExist) {
+            return server.emit(common_2.EVENTS.SERVER.RECEIVED_ROOM_MESSAGE, await (0, helpers_1.handleGetAllMessageByConversationID)(this.conversationModel, requestRoomMessageDTO.id));
+        }
+        else {
+            return server.emit(common_2.EVENTS.SERVER.RECEIVED_ROOM_MESSAGE, await (0, helpers_1.handleGetAllMessageByConversationMembers)(this.conversationModel, requestRoomMessageDTO.members));
+        }
     }
 };
 exports.ChatService = ChatService = __decorate([

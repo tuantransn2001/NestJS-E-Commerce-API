@@ -4,11 +4,7 @@ import { Model } from 'mongoose';
 import { Server } from 'socket.io';
 import { ObjectType } from '../ts/types/common';
 import { STATUS_CODE, STATUS_MESSAGE } from '../ts/enums/api_enums';
-import {
-  Conversation,
-  Member,
-  Message,
-} from '../ts/interfaces/conversation.d.type';
+import { Conversation } from '../ts/interfaces/conversation.d.type';
 import { ClientSendRoomMessDTO } from './dto/clientSendRoomMessageDTO';
 import { DeleteMessageDTO } from './dto/deleteMessageDTO';
 import { TypingDTO } from './dto/typingDTO';
@@ -16,9 +12,14 @@ import { MODEL_NAME } from '../ts/enums/model_enums';
 import { EVENTS } from '../common/constants/common';
 import RestFullAPI from '../utils/apiResponse';
 import { handleServerError } from '../utils/serverErrorHandler';
-import HttpException from '../utils/http.exception';
-import { isEmpty } from '../common';
 import { DeleteConversationDTO } from './dto/deleteConversationDTO';
+import {
+  handleGetAllMessageByConversationID,
+  handleGetAllMessageByConversationMembers,
+  handleGetLastMessage,
+} from './helpers';
+import { RequestRoomMessageDTO } from './dto/requestRoomMessageDTO';
+import { RequestContactListDTO } from './dto/requestContactListDTO';
 
 @Injectable()
 export class ChatService {
@@ -52,8 +53,10 @@ export class ChatService {
         },
       )
       .then(async () => {
-        const responseConversation =
-          await this.handleGetAllMessageByConversationID(conversationID);
+        const responseConversation = await handleGetAllMessageByConversationID(
+          this.conversationModel,
+          conversationID,
+        );
 
         server.sockets.emit(
           EVENTS.SERVER.RECEIVED_ROOM_MESSAGE,
@@ -67,66 +70,7 @@ export class ChatService {
         );
       });
   }
-  private handleFilterMessageAlreadyExist(messages: Message[]) {
-    return isEmpty(messages)
-      ? []
-      : messages.reduce(
-          (
-            messList,
-            { content, sender, isDelete, id, createdAt, updatedAt }: Message,
-          ) => {
-            !isDelete &&
-              messList.push({
-                id,
-                content,
-                sender,
-                createdAt,
-                updatedAt,
-              });
 
-            return messList;
-          },
-          [],
-        );
-  }
-  public async handleGetAllMessageByConversationID(id: string) {
-    try {
-      const foundConversation = await this.conversationModel.findOne(
-        {
-          id,
-          isDelete: false,
-        },
-        {
-          __v: 0,
-          isDelete: 0,
-          _id: 0,
-          'messages._id': 0,
-        },
-      );
-
-      if (!isEmpty(foundConversation)) {
-        const responseData = {
-          conversationID: id,
-          members: foundConversation.members,
-          messages: this.handleFilterMessageAlreadyExist(
-            foundConversation.messages,
-          ),
-        };
-
-        return RestFullAPI.onSuccess(
-          STATUS_CODE.STATUS_CODE_200,
-          STATUS_MESSAGE.SUCCESS,
-          responseData,
-        );
-      } else {
-        return RestFullAPI.onFail(STATUS_CODE.STATUS_CODE_404, {
-          message: STATUS_MESSAGE.NOT_FOUND,
-        } as HttpException);
-      }
-    } catch (err) {
-      return handleServerError(err);
-    }
-  }
   public async handleClientSendFirstRoomMessage<
     D extends ClientSendRoomMessDTO,
     S extends Server,
@@ -141,8 +85,10 @@ export class ChatService {
     await this.conversationModel
       .create(newConversationDocument)
       .then(async (response) => {
-        const responseConversation =
-          await this.handleGetAllMessageByConversationID(conversationID);
+        const responseConversation = await handleGetAllMessageByConversationID(
+          this.conversationModel,
+          conversationID,
+        );
         server.sockets.socketsJoin(response.id);
         server.sockets.emit(
           EVENTS.SERVER.RECEIVED_ROOM_MESSAGE,
@@ -203,15 +149,11 @@ export class ChatService {
         );
       });
   }
-  private handleGetLastMessage(messages: Message[]) {
-    const { content, updatedAt: timeMessage } = messages[messages.length - 1];
 
-    return { content, timeMessage };
-  }
-  public async handleGetContactList<D extends Member, S extends Server>(
-    { id }: D,
-    server: S,
-  ) {
+  public async handleGetContactList<
+    D extends RequestContactListDTO,
+    S extends Server,
+  >({ id }: D, server: S) {
     const foundUserContactList = await this.conversationModel.find(
       {
         members: { $elemMatch: { id } },
@@ -223,8 +165,8 @@ export class ChatService {
         'members._id': 0,
       },
     );
-    server.sockets.emit(
-      '',
+    server.emit(
+      EVENTS.SERVER.RECEIVED_CONTACT_LIST,
       RestFullAPI.onSuccess(
         STATUS_CODE.STATUS_CODE_200,
         STATUS_MESSAGE.SUCCESS,
@@ -242,7 +184,7 @@ export class ChatService {
             conversationID,
             name,
             members,
-            lastMessage: this.handleGetLastMessage(messages),
+            lastMessage: handleGetLastMessage(messages),
             createdAt,
             updatedAt,
           };
@@ -262,5 +204,29 @@ export class ChatService {
         { sender, isTyping },
       ),
     );
+  }
+  public async handleRequestRoomMessage<
+    D extends RequestRoomMessageDTO,
+    S extends Server,
+  >(requestRoomMessageDTO: D, server: S) {
+    const isConversationExist = requestRoomMessageDTO.id !== '';
+
+    if (isConversationExist) {
+      return server.emit(
+        EVENTS.SERVER.RECEIVED_ROOM_MESSAGE,
+        await handleGetAllMessageByConversationID(
+          this.conversationModel,
+          requestRoomMessageDTO.id,
+        ),
+      );
+    } else {
+      return server.emit(
+        EVENTS.SERVER.RECEIVED_ROOM_MESSAGE,
+        await handleGetAllMessageByConversationMembers(
+          this.conversationModel,
+          requestRoomMessageDTO.members,
+        ),
+      );
+    }
   }
 }
